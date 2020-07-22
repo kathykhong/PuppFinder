@@ -32,6 +32,7 @@ preferred characteristics, and narrow down our options.
 <br>
 
 <h3>User Stories</h3>
+
 - As a user, I want to be able to interact with the console and select responses that cater to the characteristic preferences for my desired dog
 - As a user, I want to be able to view the resulting list of dog breeds that matched my responses 
 - As a user, I want to be able to select a dog breed in the resulting collection and view its picture and information in detail
