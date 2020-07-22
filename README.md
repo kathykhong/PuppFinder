@@ -29,7 +29,6 @@ of the breed is. Therefore, I hope that this application can help me and other p
 who are interested dogs but do not know all the dog breeds by heart learn more about the different types based on the
 preferred characteristics, and narrow down our options.  
 
-<br>
 
 <h3>User Stories</h3>
 
@@ -39,7 +38,7 @@ preferred characteristics, and narrow down our options.
 - As a user, I want to be able to choose and  **like**  any of the dog breeds and add them to a WishList
 - As a user, I want to be able to review my selection in the WishList, delete any dog breeds, and narrow down my choices to the one I love the most
 
-
+<br>
 
 
  
