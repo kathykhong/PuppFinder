@@ -6,6 +6,7 @@ import model.WishList;
 import java.util.Scanner;
 
 //Class represents the PuppFinder application
+//contains all dog breed data
 //manages all the user inputs
 
 public class PuppLauncher {
@@ -21,72 +22,39 @@ public class PuppLauncher {
     private Scanner input;
     private boolean runProgram;
 
-    private DogBreed americanEskimo = new DogBreed("American Eskimo", 1, "medium", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed australianTerrier = new DogBreed("Australian Terrier", 1, "small", 1,
-            0, 0, 1, 1, 1);
-    private DogBreed germanSpitz = new DogBreed("German Spitz", 1, "medium", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed papillon = new DogBreed("Papillon", 1, "small", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed pekingnese = new DogBreed("Pekingnese", 1, "small", 0,
-            0, 0, 0, 0, 1);
-    private DogBreed pomeranian = new DogBreed("Pomeranian", 1, "small", 1,
-            1, 0, 0, 1, 1);
-    private DogBreed shitZu = new DogBreed("Shi Tzu", 1, "small", 0,
-            1, 1, 1, 1, 1);
-    private DogBreed scottishTerrier = new DogBreed("Scottish Terrier", 1, "medium", 1,
-            0, 1, 1, 1, 1);
-    private DogBreed yorkiPoo = new DogBreed("Yorki Poo", 1, "small", 1,
-            0, 1, 1, 0, 1);
-    private DogBreed yorkshireTerrier = new DogBreed("Yorkshire Terrier", 1, "small", 1,
-            0, 1, 1, 0, 1);
-    private DogBreed beardedCollie = new DogBreed("Bearded Collie", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed borderCollie = new DogBreed("Border Collie", 1, "medium", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed finnishLaphund = new DogBreed("Finnish Laphund", 1, "medium", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed gordonSetter = new DogBreed("Gordon Setter", 1, "large", 1,
-            1, 0, 1, 1, 1);
-    private DogBreed goldenRetriever = new DogBreed("Golden Retriever", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed icelandicSheepdog = new DogBreed("Icelandic Sheepdog", 1, "medium", 1,
-            1, 0, 1, 0, 1);
-    private DogBreed siberianHusky = new DogBreed("Siberian Husky", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed samoyed = new DogBreed("Samoyed", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed australianCattleDog = new DogBreed("Australian Cattle Dog", 0, "medium", 1,
-            1, 1, 1, 0, 1);
-    private DogBreed americanPitbullTerrier = new DogBreed("American Pitbull Terrier", 0, "large", 1,
-            1, 0, 1, 1, 1);
-    private DogBreed boxer = new DogBreed("Boxer", 0, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed drever = new DogBreed("Drever", 0, "medium", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed germanPinscher = new DogBreed("German Pinscher", 0, "medium", 1,
-            1, 0, 1, 0, 1);
-    private DogBreed ibizanHound = new DogBreed("Ibizan Hound", 0, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed vizsla = new DogBreed("Vizsla", 0, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed spanishMastiff = new DogBreed("Spanish Mastiff", 0, "large", 1,
-            1, 0, 1, 0, 1);
-    private DogBreed saintBernard = new DogBreed("Saint Bernard", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed filaBrasileiro = new DogBreed("Fila Brasileiro", 0, "large", 1,
-            0, 0, 1, 0, 1);
-    private DogBreed rottweiler = new DogBreed("Rottweiler", 0, "large", 1,
-            1, 0, 1, 1, 1);
-    private DogBreed bloodhound = new DogBreed("Bloodhound", 0, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed newfoundland = new DogBreed("Newfoundland", 1, "large", 1,
-            1, 1, 1, 1, 1);
-    private DogBreed germanShepherd = new DogBreed("German Shepherd", 1, "large", 1,
-            1, 0, 1, 1, 1);
-    private DogBreed giantSchnauzer = new DogBreed("Giant Schnauzer", 1, "large", 1,
-            1, 1, 1, 0, 1);
+    private DogBreed americanEskimo;
+    private DogBreed australianTerrier;
+    private DogBreed germanSpitz;
+    private DogBreed papillon;
+    private DogBreed pekingnese;
+    private DogBreed pomeranian;
+    private DogBreed shitZu;
+    private DogBreed scottishTerrier;
+    private DogBreed yorkiPoo;
+    private DogBreed yorkshireTerrier;
+    private DogBreed beardedCollie;
+    private DogBreed borderCollie;
+    private DogBreed finnishLaphund;
+    private DogBreed gordonSetter;
+    private DogBreed goldenRetriever;
+    private DogBreed icelandicSheepdog;
+    private DogBreed siberianHusky;
+    private DogBreed samoyed;
+    private DogBreed australianCattleDog;
+    private DogBreed americanPitbullTerrier;
+    private DogBreed boxer;
+    private DogBreed drever;
+    private DogBreed germanPinscher;
+    private DogBreed ibizanHound;
+    private DogBreed vizsla;
+    private DogBreed spanishMastiff;
+    private DogBreed saintBernard;
+    private DogBreed filaBrasileiro;
+    private DogBreed rottweiler;
+    private DogBreed bloodhound;
+    private DogBreed newfoundland;
+    private DogBreed germanShepherd;
+    private DogBreed giantSchnauzer;
 
     DogBreedSet dbs = new DogBreedSet();
     WishList wishList = new WishList();
@@ -103,7 +71,6 @@ public class PuppLauncher {
         handleUserResponseToWelcome();
 
     }
-
 
     //EFFECTS: prints out welcome message and processes user input
     private void handleUserResponseToWelcome() {
@@ -559,9 +526,91 @@ public class PuppLauncher {
     //MODIFIES: this
     //EFFECTS: sets up the list of dog breed
     private void setupListOfDogBreed() {
+        initializeFirstSetOfDogs();
+        initializeSecondSetOfDogs();
+        initializeThirdSetOfDogs();
+        initializeFourthSetOfDogs();
         addFirstSetOfDogs();
         addRestOfDogs();
 
+    }
+
+    private void initializeFourthSetOfDogs() {
+        saintBernard = new DogBreed("Saint Bernard", 1, "large", 1,
+                1, 1, 1, 1, 1);
+        filaBrasileiro = new DogBreed("Fila Brasileiro", 0, "large", 1,
+                0, 0, 1, 0, 1);
+        rottweiler = new DogBreed("Rottweiler", 0, "large", 1,
+                1, 0, 1, 1, 1);
+        bloodhound = new DogBreed("Bloodhound", 0, "large", 1,
+                1, 1, 1, 1, 1);
+        newfoundland = new DogBreed("Newfoundland", 1, "large", 1,
+                1, 1, 1, 1, 1);
+        germanShepherd = new DogBreed("German Shepherd", 1, "large", 1,
+                1, 0, 1, 1, 1);
+        giantSchnauzer = new DogBreed("Giant Schnauzer", 1, "large", 1,
+                1, 1, 1, 0, 1);
+    }
+
+    private void initializeThirdSetOfDogs() {
+        australianCattleDog = new DogBreed("Australian Cattle Dog", 0, "medium", 1,
+                1, 1, 1, 0, 1);
+        americanPitbullTerrier = new DogBreed("American Pitbull Terrier", 0, "large", 1,
+                1, 0, 1, 1, 1);
+        boxer = new DogBreed("Boxer", 0, "large", 1,
+                1, 1, 1, 1, 1);
+        drever = new DogBreed("Drever", 0, "medium", 1,
+                1, 1, 1, 1, 1);
+        germanPinscher = new DogBreed("German Pinscher", 0, "medium", 1,
+                1, 0, 1, 0, 1);
+        ibizanHound = new DogBreed("Ibizan Hound", 0, "large", 1,
+                1, 1, 1, 1, 1);
+        vizsla = new DogBreed("Vizsla", 0, "large", 1,
+                1, 1, 1, 1, 1);
+        spanishMastiff = new DogBreed("Spanish Mastiff", 0, "large", 1,
+                1, 0, 1, 0, 1);
+    }
+
+    private void initializeSecondSetOfDogs() {
+        yorkshireTerrier = new DogBreed("Yorkshire Terrier", 1, "small", 1,
+                0, 1, 1, 0, 1);
+        beardedCollie = new DogBreed("Bearded Collie", 1, "large", 1,
+                1, 1, 1, 1, 1);
+        borderCollie = new DogBreed("Border Collie", 1, "medium", 1,
+                1, 1, 1, 1, 1);
+        finnishLaphund = new DogBreed("Finnish Laphund", 1, "medium", 1,
+                1, 1, 1, 1, 1);
+        gordonSetter = new DogBreed("Gordon Setter", 1, "large", 1,
+                1, 0, 1, 1, 1);
+        goldenRetriever = new DogBreed("Golden Retriever", 1, "large", 1,
+                1, 1, 1, 1, 1);
+        icelandicSheepdog = new DogBreed("Icelandic Sheepdog", 1, "medium", 1,
+                1, 0, 1, 0, 1);
+        siberianHusky = new DogBreed("Siberian Husky", 1, "large", 1,
+                1, 1, 1, 1, 1);
+        samoyed = new DogBreed("Samoyed", 1, "large", 1,
+                1, 1, 1, 1, 1);
+    }
+
+    public void initializeFirstSetOfDogs() {
+        americanEskimo = new DogBreed("American Eskimo", 1, "medium", 1,
+                1, 1, 1, 1, 1);
+        australianTerrier = new DogBreed("Australian Terrier", 1, "small", 1,
+                0, 0, 1, 1, 1);
+        germanSpitz = new DogBreed("German Spitz", 1, "medium", 1,
+                1, 1, 1, 1, 1);
+        papillon = new DogBreed("Papillon", 1, "small", 1,
+                1, 1, 1, 1, 1);
+        pekingnese = new DogBreed("Pekingnese", 1, "small", 0,
+                0, 0, 0, 0, 1);
+        pomeranian = new DogBreed("Pomeranian", 1, "small", 1,
+                1, 0, 0, 1, 1);
+        shitZu = new DogBreed("Shi Tzu", 1, "small", 0,
+                1, 1, 1, 1, 1);
+        scottishTerrier = new DogBreed("Scottish Terrier", 1, "medium", 1,
+                0, 1, 1, 1, 1);
+        yorkiPoo = new DogBreed("Yorki Poo", 1, "small", 1,
+                0, 1, 1, 0, 1);
     }
 
     //EFFECTS: formats the given string so it is pretty
