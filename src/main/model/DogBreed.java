@@ -1,26 +1,19 @@
 package model;
 
 
-import java.awt.*;
-import java.io.File;
-
 
 public class DogBreed {
     private String name;
     private int fluff;
     private String size;
     private int energetic;
-    private int noisy;
     private int dogFriendly;
     private int kidFriendly;
     private int strangerFriendly;
     private int intelligence;
     private int shedALot;
-    private File briefDescription;
-    private Image picture;
-    private int liked;
 
-    //EFFECTS : constructs DogBreed with given name, characteristics, description, picture and like status
+    //EFFECTS : constructs DogBreed with given name and numerous characteristics
     public DogBreed(String name,
                     Integer fluff,
                     String size,
@@ -39,12 +32,10 @@ public class DogBreed {
         this.shedALot = shedALot;
         this.intelligence = intelligence;
         this.energetic = energetic;
-        briefDescription = null;
-        picture = null;
-        liked = 0;
+
     }
 
-    //GETTERS;
+    //GETTERS:
     public String getName() {
         return name;
     }
@@ -77,43 +68,9 @@ public class DogBreed {
         return intelligence;
     }
 
-    public Integer getNoisy() {
-        return noisy;
-    }
-
     public Integer getShedALot() {
         return shedALot;
     }
-
-    public Image getPicture() {
-        return picture;
-    }
-
-    public File getBriefDescription() {
-        return briefDescription;
-    }
-
-    public Integer isLiked() {
-        return liked;
-    }
-
-    //SETTERS
-
-    public void setBriefDescription(File briefDescription) {
-        this.briefDescription = briefDescription;
-    }
-
-    public void setPicture(Image picture) {
-        this.picture = picture;
-    }
-
-    public void like() {
-        this.liked = 1;
-    }
-
-
-
-
 
 }
 
