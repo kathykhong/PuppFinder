@@ -35,6 +35,7 @@ public class DogBreedSet {
         return data.size();
     }
 
+    //REQUIRES: the dog breed set cannot be empty
     //EFFECTS: returns the dog breed at the given index
     public DogBreed get(int index) {
         return data.get(index);

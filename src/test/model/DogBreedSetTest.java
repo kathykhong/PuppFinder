@@ -40,11 +40,18 @@ public class DogBreedSetTest {
     }
 
     @Test
+    public void testGet() {
+        assertEquals(testSetAll.get(0),testDogBreed1);
+        assertEquals(testSetAll.get(0).getName(), "Test Dog 1");
+    }
+
+    @Test
     public void testFilterMultipleFluffy() {
         assertEquals(testSetAll.size(), 9);
         testSetAll.filterFluffy();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsFluffyOnly());
+        assertFalse(testSetAll.containsNonFluffyOnly());
     }
 
     @Test
@@ -54,6 +61,7 @@ public class DogBreedSetTest {
        testSetEmpty.filterFluffy();
        assertEquals(testSetEmpty.size(), 1);
        assertTrue(testSetEmpty.containsFluffyOnly());
+       assertFalse(testSetEmpty.containsNonFluffyOnly());
     }
 
     @Test
@@ -66,6 +74,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterFluffy();
         assertEquals(testSetEmpty.size(), 0);
         assertFalse(testSetEmpty.containsFluffyOnly());
+
     }
 
     @Test
@@ -74,6 +83,7 @@ public class DogBreedSetTest {
         testSetAll.filterNonFluffy();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonFluffyOnly());
+        assertFalse(testSetAll.containsFluffyOnly());
 
     }
 
@@ -84,6 +94,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNonFluffy();
         assertEquals(testSetEmpty.size(), 1);
         assertTrue(testSetEmpty.containsNonFluffyOnly());
+        assertFalse(testSetEmpty.containsFluffyOnly());
     }
 
     @Test
@@ -104,6 +115,8 @@ public class DogBreedSetTest {
         testSetAll.filterSmall();
         assertEquals(testSetAll.size(), 3 );
         assertTrue(testSetAll.containsSmallOnly());
+        assertFalse(testSetAll.containsMediumOnly());
+        assertFalse(testSetAll.containsLargeOnly());
     }
 
     @Test
@@ -113,6 +126,8 @@ public class DogBreedSetTest {
         testSetEmpty.filterSmall();
         assertEquals(testSetEmpty.size(), 1);
         assertTrue(testSetEmpty.containsSmallOnly());
+        assertFalse(testSetEmpty.containsMediumOnly());
+        assertFalse(testSetEmpty.containsLargeOnly());
     }
 
     @Test
@@ -133,6 +148,8 @@ public class DogBreedSetTest {
         testSetAll.filterMedium();
         assertEquals(testSetAll.size(), 3 );
         assertTrue(testSetAll.containsMediumOnly());
+        assertFalse(testSetAll.containsLargeOnly());
+        assertFalse(testSetAll.containsSmallOnly());
     }
 
     @Test
@@ -142,6 +159,8 @@ public class DogBreedSetTest {
         testSetEmpty.filterMedium();
         assertEquals(testSetEmpty.size(), 1);
         assertTrue(testSetEmpty.containsMediumOnly());
+        assertFalse(testSetEmpty.containsLargeOnly());
+        assertFalse(testSetEmpty.containsSmallOnly());
     }
 
     @Test
@@ -162,6 +181,8 @@ public class DogBreedSetTest {
         testSetAll.filterLarge();
         assertEquals(testSetAll.size(), 3 );
         assertTrue(testSetAll.containsLargeOnly());
+        assertFalse(testSetAll.containsSmallOnly());
+        assertFalse(testSetAll.containsMediumOnly());
     }
 
     @Test
@@ -171,6 +192,8 @@ public class DogBreedSetTest {
         testSetEmpty.filterLarge();
         assertEquals(testSetEmpty.size(), 1);
         assertTrue(testSetEmpty.containsLargeOnly());
+        assertFalse(testSetEmpty.containsMediumOnly());
+        assertFalse(testSetEmpty.containsSmallOnly());
     }
 
     @Test
@@ -191,6 +214,7 @@ public class DogBreedSetTest {
         testSetAll.filterEnergetic();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsEnergeticOnly());
+        assertFalse(testSetAll.containsNonEnergeticOnly());
 
     }
 
@@ -201,6 +225,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterEnergetic();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsEnergeticOnly());
+        assertFalse(testSetEmpty.containsNonEnergeticOnly());
     }
 
     @Test
@@ -221,7 +246,7 @@ public class DogBreedSetTest {
         testSetAll.filterNonEnergetic();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsNonEnergeticOnly());
-
+        assertFalse(testSetAll.containsEnergeticOnly());
     }
 
     @Test
@@ -231,6 +256,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNonEnergetic();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsNonEnergeticOnly());
+        assertFalse(testSetEmpty.containsEnergeticOnly());
     }
 
     @Test
@@ -251,7 +277,7 @@ public class DogBreedSetTest {
         testSetAll.filterShedALot();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsShedALotOnly());
-
+        assertFalse(testSetAll.containsShedALittleOnly());
     }
 
     @Test
@@ -261,6 +287,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterShedALot();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsShedALotOnly());
+        assertFalse(testSetEmpty.containsShedALittleOnly());
     }
 
     @Test
@@ -281,7 +308,7 @@ public class DogBreedSetTest {
         testSetAll.filterShedALittle();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsShedALittleOnly());
-
+        assertFalse(testSetAll.containsShedALotOnly());
     }
 
     @Test
@@ -291,6 +318,8 @@ public class DogBreedSetTest {
         testSetEmpty.filterShedALittle();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsShedALittleOnly());
+        assertFalse(testSetEmpty.containsShedALotOnly());
+
     }
 
     @Test
@@ -311,6 +340,7 @@ public class DogBreedSetTest {
         testSetAll.filterDogFriendly();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsDogFriendlyOnly());
+        assertFalse(testSetAll.containsNonDogFriendlyOnly());
 
     }
 
@@ -321,6 +351,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterDogFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsDogFriendlyOnly());
+        assertFalse(testSetEmpty.containsNonDogFriendlyOnly());
     }
 
     @Test
@@ -341,6 +372,7 @@ public class DogBreedSetTest {
         testSetAll.filterNotDogFriendly();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonDogFriendlyOnly());
+        assertFalse(testSetAll.containsDogFriendlyOnly());
 
     }
 
@@ -351,6 +383,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNotDogFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsNonDogFriendlyOnly());
+        assertFalse(testSetEmpty.containsDogFriendlyOnly());
     }
 
     @Test
@@ -371,6 +404,7 @@ public class DogBreedSetTest {
         testSetAll.filterKidFriendly();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsKidFriendlyOnly());
+        assertFalse(testSetAll.containsNonKidFriendlyOnly());
 
     }
 
@@ -381,6 +415,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterKidFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsKidFriendlyOnly());
+        assertFalse(testSetEmpty.containsNonKidFriendlyOnly());
     }
 
     @Test
@@ -401,6 +436,7 @@ public class DogBreedSetTest {
         testSetAll.filterNotKidFriendly();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonKidFriendlyOnly());
+        assertFalse(testSetAll.containsKidFriendlyOnly());
 
     }
 
@@ -411,6 +447,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNotKidFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsNonKidFriendlyOnly());
+        assertFalse(testSetEmpty.containsKidFriendlyOnly());
     }
 
     @Test
@@ -431,6 +468,7 @@ public class DogBreedSetTest {
         testSetAll.filterStrangerFriendly();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsStrangerFriendlyOnly());
+        assertFalse(testSetAll.containsNonStrangerFriendlyOnly());
 
     }
 
@@ -441,6 +479,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterStrangerFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsStrangerFriendlyOnly());
+        assertFalse(testSetEmpty.containsNonStrangerFriendlyOnly());
     }
 
     @Test
@@ -461,6 +500,7 @@ public class DogBreedSetTest {
         testSetAll.filterNotStrangerFriendly();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonStrangerFriendlyOnly());
+        assertFalse(testSetAll.containsStrangerFriendlyOnly());
 
     }
 
@@ -471,6 +511,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNotStrangerFriendly();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsNonStrangerFriendlyOnly());
+        assertFalse(testSetEmpty.containsStrangerFriendlyOnly());
     }
 
     @Test
@@ -491,6 +532,7 @@ public class DogBreedSetTest {
         testSetAll.filterIntelligent();
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsIntelligentOnly());
+        assertFalse(testSetAll.containsNonIntelligentOnly());
 
     }
 
@@ -501,6 +543,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterIntelligent();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsIntelligentOnly());
+        assertFalse(testSetAll.containsNonIntelligentOnly());
     }
 
     @Test
@@ -521,7 +564,7 @@ public class DogBreedSetTest {
         testSetAll.filterNotIntelligent();
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonIntelligentOnly());
-
+        assertFalse(testSetAll.containsIntelligentOnly());
     }
 
     @Test
@@ -531,6 +574,7 @@ public class DogBreedSetTest {
         testSetEmpty.filterNotIntelligent();
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsNonIntelligentOnly());
+        assertFalse(testSetEmpty.containsIntelligentOnly());
     }
 
     @Test

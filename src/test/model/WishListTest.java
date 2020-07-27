@@ -36,4 +36,13 @@ public class WishListTest {
         assertTrue(testWishList.contains(testDogBreed2));
         assertTrue(testWishList.contains(testDogBreed3));
     }
+
+    @Test
+    public void testGet() {
+        testWishList.add(testDogBreed1);
+        testWishList.add(testDogBreed2);
+        testWishList.add(testDogBreed3);
+        assertEquals(testWishList.get(2), testDogBreed3);
+        assertEquals(testWishList.get(2).getName(), "Test Dog 3");
+    }
 }

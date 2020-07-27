@@ -29,6 +29,7 @@ public class WishList {
         return myList.isEmpty();
     }
 
+    //REQUIRES: wishList cannot be empty
     //EFFECTS: returns db at the given index in the wish list
     public DogBreed get(int index) {
         return myList.get(index);
