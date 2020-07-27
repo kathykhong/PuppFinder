@@ -1,6 +1,8 @@
 package model;
 
-
+//* Class represents a dog breed that contains a name and a variety of characteristics
+//including fluff, size, level of energy, dog-friendliness, kid-friendliness,
+//stranger-friendliness, level of shedding, and intelligence
 
 public class DogBreed {
     private String name;

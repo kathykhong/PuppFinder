@@ -5,6 +5,9 @@ import model.DogBreedSet;
 import model.WishList;
 import java.util.Scanner;
 
+//Class represents the PuppFinder application
+//manages all the user inputs
+
 public class PuppLauncher {
     private static final String SMALL_COMMAND = "small";
     private static final String MEDIUM_COMMAND = "medium";
