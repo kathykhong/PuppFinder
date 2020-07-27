@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class DogBreedSet {
     private ArrayList<DogBreed> data;
 
-
     public DogBreedSet() {
         this.data = new ArrayList<>();
     }
@@ -43,90 +42,120 @@ public class DogBreedSet {
 
     //MODIFIES: this
     //EFFECTS: removes all the non-fully dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterFluffy() {
         data.removeIf(db -> db.getFluff() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the fluffy dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNonFluffy() {
         data.removeIf(db -> db.getFluff() == 1);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the large or medium dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterSmall() {
         data.removeIf(db -> !db.getSize().equals("small"));
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the small or large  dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterMedium() {
         data.removeIf(db -> !db.getSize().equals("medium"));
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the small or medium dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterLarge() {
         data.removeIf(db -> !db.getSize().equals("large"));
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the calm dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterEnergetic() {
         data.removeIf(db -> db.getEnergetic() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the energetic dog breeds
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNonEnergetic() {
         data.removeIf(db -> db.getEnergetic() == 1);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that shed very little
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterShedALot() {
         data.removeIf(db -> db.getShedALot() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that shed a lot
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterShedALittle() {
         data.removeIf(db -> db.getShedALot() == 1);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are not dog-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterDogFriendly() {
         data.removeIf(db -> db.getDogFriendly() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are dog-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNotDogFriendly() {
         data.removeIf(db -> db.getDogFriendly() == 1);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are not kid-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterKidFriendly() {
         data.removeIf(db -> db.getKidFriendly() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are kid-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNotKidFriendly() {
         data.removeIf(db -> db.getKidFriendly() == 1);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are not stranger-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterStrangerFriendly() {
         data.removeIf(db -> db.getStrangerFriendly() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are stranger-friendly
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNotStrangerFriendly() {
         data.removeIf(db -> db.getStrangerFriendly() == 1);
     }
@@ -134,12 +163,16 @@ public class DogBreedSet {
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are not intelligent
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterIntelligent() {
         data.removeIf(db -> db.getIntelligence() == 0);
     }
 
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are intelligent
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
     public void filterNotIntelligent() {
         data.removeIf(db -> db.getIntelligence() == 1);
     }

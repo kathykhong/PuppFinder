@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//test class for DogBreedSet
+
 public class DogBreedSetTest {
     private DogBreedSet testSetAll;
     private DogBreed testDogBreed1;
@@ -84,7 +86,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonFluffyOnly());
         assertFalse(testSetAll.containsFluffyOnly());
-
     }
 
     @Test
@@ -319,7 +320,6 @@ public class DogBreedSetTest {
         assertEquals(testSetEmpty.size(),1);
         assertTrue(testSetEmpty.containsShedALittleOnly());
         assertFalse(testSetEmpty.containsShedALotOnly());
-
     }
 
     @Test
@@ -341,7 +341,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsDogFriendlyOnly());
         assertFalse(testSetAll.containsNonDogFriendlyOnly());
-
     }
 
     @Test
@@ -373,7 +372,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonDogFriendlyOnly());
         assertFalse(testSetAll.containsDogFriendlyOnly());
-
     }
 
     @Test
@@ -405,7 +403,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsKidFriendlyOnly());
         assertFalse(testSetAll.containsNonKidFriendlyOnly());
-
     }
 
     @Test
@@ -469,7 +466,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsStrangerFriendlyOnly());
         assertFalse(testSetAll.containsNonStrangerFriendlyOnly());
-
     }
 
     @Test
@@ -501,7 +497,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 4 );
         assertTrue(testSetAll.containsNonStrangerFriendlyOnly());
         assertFalse(testSetAll.containsStrangerFriendlyOnly());
-
     }
 
     @Test
@@ -533,7 +528,6 @@ public class DogBreedSetTest {
         assertEquals(testSetAll.size(), 5 );
         assertTrue(testSetAll.containsIntelligentOnly());
         assertFalse(testSetAll.containsNonIntelligentOnly());
-
     }
 
     @Test
@@ -589,7 +583,6 @@ public class DogBreedSetTest {
         assertFalse(testSetEmpty.containsNonIntelligentOnly());
     }
 
-
     private void initializeDogBreeds() {
         testDogBreed1 = new DogBreed("Test Dog 1", 1, "small", 1, 1,
                 1, 1,1,1);
@@ -622,5 +615,4 @@ public class DogBreedSetTest {
         testSetAll.add(testDogBreed8);
         testSetAll.add(testDogBreed9);
     }
-
 }

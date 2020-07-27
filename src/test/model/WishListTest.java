@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//test class for WishList
+
 public class WishListTest {
     private WishList testWishList;
     private DogBreed testDogBreed1;
