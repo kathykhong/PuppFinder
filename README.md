@@ -32,6 +32,8 @@ preferred characteristics, and narrow down our options.
 - As a user, I want to be able to view the results of the dog breeds that match my responses
 - As a user, I want to be able to select a dog breed or multiple dog breeds in the resulting collection and add it to a WishList
 - As a user, I want to be able to rate the quality of service in the PuppFinder application
+- As a user, I want to be able to save the results of my wishList to file
+- As a user, I want to be able to load the results of my wishList when the program starts
 
 <br>
 <br>

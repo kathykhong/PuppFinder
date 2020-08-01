@@ -14,7 +14,7 @@ public class DogBreed {
     private int strangerFriendly;
     private int intelligence;
     private int shedALot;
-
+    private String description;
     //EFFECTS : constructs DogBreed with given name and numerous characteristics
     public DogBreed(String name,
                     Integer fluff,
