@@ -1,0 +1,33 @@
+Australian Cattle Dog,0,medium,1,1,1,1,0,1
+American Pitbull Terrier,0,large,1,1,0,1,1,1
+Boxer,0,large,1,1,1,1,1,1
+Drever,0,medium,1,1,1,1,1,1
+German Pinscher,0,medium,1,1,0,1,0,1
+Ibizan Hound,0,large,1,1,1,1,1,1
+Vizsla,0,large,1,1,1,1,1,1
+Spanish Mastiff,0,large,1,1,0,1,0,1
+Yorkshire Terrier,1,small,1,0,1,1,0,1
+Bearded Collie,1,large,1,1,1,1,1,1
+Border Collie,1,medium,1,1,1,1,1,1
+Finnish Laphund,1,medium,1,1,1,1,1,1
+Gordon Setter,1,large,1,1,0,1,1,1
+Golden Retriever,1,large,1,1,1,1,1,1
+Icelandic Sheepdog,1,medium,1,1,0,1,0,1
+Siberian Husky,1,large,1,1,1,1,1,1
+Samoyed,1,large,1,1,1,1,1,1
+American Eskimo,1,medium,1,1,1,1,1,1
+Australian Terrier,1,small,1,0,0,1,1,1
+German Spitz,1,medium,1,1,1,1,1,1
+Papillon,1,small,1,1,1,1,1,1
+Pekingnese,1,small,0,0,0,0,0,1
+Pomeranian,1,small,1,1,0,0,1,1
+Shi Tzu,1,small,0,1,1,1,1,1
+Scottish Terrier,1,medium,1,0,1,1,1,1
+Yorki Poo,1,small,1,0,1,1,0,1
+Saint Bernard,1,large,1,1,1,1,1,1
+Fila Brasileiro,0,large,1,0,0,1,0,1
+Rottweiler,0,large,1,1,0,1,1,1
+Bloodhound,0,large,1,1,1,1,1,1
+Newfoundland,1,large,1,1,1,1,1,1
+German Shepherd,1,large,1,1,0,1,1,1
+Giant Schnauzer,1,large,1,1,1,1,0,1

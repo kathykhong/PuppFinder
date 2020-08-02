@@ -1,10 +1,13 @@
 package model;
 
+import persistence.Saveable;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 //* Class represents a list of dog breeds the user likes or wishes to have
 
-public class WishList {
+public class WishList implements Saveable {
 
     private ArrayList<DogBreed> myList;
 
@@ -41,6 +44,8 @@ public class WishList {
     }
 
 
+    @Override
+    public void save(PrintWriter printWriter) {
 
-
+    }
 }

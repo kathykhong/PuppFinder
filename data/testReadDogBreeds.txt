@@ -1,0 +1,2 @@
+Pekingnese,1,small,0,0,0,0,0,1
+Pomeranian,1,small,1,1,0,0,1,1

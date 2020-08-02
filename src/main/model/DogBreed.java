@@ -4,7 +4,12 @@ package model;
 //including fluff, size, level of energy, dog-friendliness, kid-friendliness,
 //stranger-friendliness, level of shedding, and intelligence
 
-public class DogBreed {
+import persistence.Reader;
+import persistence.Saveable;
+
+import java.io.PrintWriter;
+
+public class DogBreed implements Saveable {
     private String name;
     private int fluff;
     private String size;
@@ -14,7 +19,8 @@ public class DogBreed {
     private int strangerFriendly;
     private int intelligence;
     private int shedALot;
-    private String description;
+
+
     //EFFECTS : constructs DogBreed with given name and numerous characteristics
     public DogBreed(String name,
                     Integer fluff,
@@ -74,5 +80,27 @@ public class DogBreed {
         return shedALot;
     }
 
+    @Override
+    public void save(PrintWriter printWriter) {
+        printWriter.print(name);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(fluff);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(size);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(energetic);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(shedALot);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(dogFriendly);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(kidFriendly);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(strangerFriendly);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(intelligence);
+        printWriter.print("\n");
+
+    }
 }
 

@@ -3,6 +3,13 @@ package ui;
 import model.DogBreed;
 import model.DogBreedSet;
 import model.WishList;
+import persistence.Reader;
+import persistence.Writer;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 //Class represents the PuppFinder application
@@ -10,6 +17,13 @@ import java.util.Scanner;
 //manages all the user inputs
 
 public class PuppLauncher {
+    private static final String WISH_LIST_FILE = "./data/wishList.txt";
+    private static final String DOG_BREED_SET_FILE = "./data/initalDogBreeds.txt";
+    DogBreedSet dbs = new DogBreedSet();
+    WishList wishList;
+    private static final String VIEW_COMMAND = "view";
+    private static final String CONTINUE_COMMAND = "continue";
+    private static final String QUIT_COMMAND = "quit";
     private static final String SMALL_COMMAND = "small";
     private static final String MEDIUM_COMMAND = "medium";
     private static final String LARGE_COMMAND = "large";
@@ -22,43 +36,6 @@ public class PuppLauncher {
     private Scanner input;
     private boolean runProgram;
 
-    private DogBreed americanEskimo;
-    private DogBreed australianTerrier;
-    private DogBreed germanSpitz;
-    private DogBreed papillon;
-    private DogBreed pekingnese;
-    private DogBreed pomeranian;
-    private DogBreed shitZu;
-    private DogBreed scottishTerrier;
-    private DogBreed yorkiPoo;
-    private DogBreed yorkshireTerrier;
-    private DogBreed beardedCollie;
-    private DogBreed borderCollie;
-    private DogBreed finnishLaphund;
-    private DogBreed gordonSetter;
-    private DogBreed goldenRetriever;
-    private DogBreed icelandicSheepdog;
-    private DogBreed siberianHusky;
-    private DogBreed samoyed;
-    private DogBreed australianCattleDog;
-    private DogBreed americanPitbullTerrier;
-    private DogBreed boxer;
-    private DogBreed drever;
-    private DogBreed germanPinscher;
-    private DogBreed ibizanHound;
-    private DogBreed vizsla;
-    private DogBreed spanishMastiff;
-    private DogBreed saintBernard;
-    private DogBreed filaBrasileiro;
-    private DogBreed rottweiler;
-    private DogBreed bloodhound;
-    private DogBreed newfoundland;
-    private DogBreed germanShepherd;
-    private DogBreed giantSchnauzer;
-
-    DogBreedSet dbs = new DogBreedSet();
-    WishList wishList = new WishList();
-
     //Source: code from B1: FitLifeGymChain Practice Problem
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     public PuppLauncher() {
@@ -69,8 +46,56 @@ public class PuppLauncher {
     //MODIFIES: this
     //EFFECTS: runs the PuppFinder Application
     public void runPuppFinderApp() {
-        setupListOfDogBreed();
+        loadInitialDogBreedSet();
+        loadWishList();
         handleUserResponseToWelcome();
+
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads the wish list from the WISH_LIST_FILE
+    private void loadWishList() {
+        try {
+            this.wishList = Reader.readWishList(new File(WISH_LIST_FILE));
+        } catch (IOException e) {
+            initializeWishList();
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECT: loads the initial dog breed set
+    private void loadInitialDogBreedSet() {
+        try {
+            this.dbs = Reader.readDogBreadSet(new File(DOG_BREED_SET_FILE));
+        } catch (IOException e) {
+            System.out.println("No data found");
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: initializes the wish list
+    private void initializeWishList() {
+        this.wishList = new WishList();
+
+    }
+
+    //EFFECTS: saves the state of the wish list to the WISH_LIST_FILE
+    private void saveWishList() {
+        try {
+            Writer writer = new Writer(new File(WISH_LIST_FILE));
+            for (int i = 0; i < wishList.size(); i++) {
+                writer.write(wishList.get(i));
+
+            }
+            writer.close();
+            System.out.println("Wish List is saved to file:  " + WISH_LIST_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save Wish List to " + WISH_LIST_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            //due to programming error
+        }
 
     }
 
@@ -80,7 +105,10 @@ public class PuppLauncher {
     private void handleUserResponseToWelcome() {
         System.out.println("Welcome to PuppFinder!");
         System.out.println("We are here to help you find your perfect beloved pup in no time!");
-        System.out.println("Would you like to continue?");
+        System.out.println("Enter 'view' to see your WishList");
+        System.out.println("Enter 'quit' to leave PuppFinder");
+        System.out.println("Enter 'continue' to get started!");
+
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -95,11 +123,45 @@ public class PuppLauncher {
     private void parseInputStart(String str) {
         if (str.length() > 0) {
             switch (str) {
-                case YES_COMMAND:
+                case CONTINUE_COMMAND:
                     handleUserResponseToFluff();
                     break;
-                case NO_COMMAND:
+                case QUIT_COMMAND:
                     handleUserResponseToEnd();
+                case VIEW_COMMAND:
+                    handleUserResponseToSavedWishList();
+
+            }
+        }
+    }
+
+    private void handleUserResponseToSavedWishList() {
+        if (!wishList.isEmpty()) {
+            System.out.println("Here is your wish list:");
+            printWishListDogBreedNames();
+            System.out.println("If you think your preferences have changed: ");
+        } else {
+            System.out.println("There are no dog breeds in the Wish List");
+        }
+        System.out.println("Enter 'continue' to begin our questionaire");
+        System.out.println("Enter 'quit' to end the application");
+        String str;
+        while (runProgram) {
+            str = getUserInputString();
+            parseInputSavedWishList(str);
+
+        }
+    }
+
+    private void parseInputSavedWishList(String str) {
+        if (str.length() > 0) {
+            switch (str) {
+                case CONTINUE_COMMAND:
+                    handleUserResponseToFluff();
+                    break;
+                case QUIT_COMMAND:
+                    endProgram();
+                    break;
             }
         }
     }
@@ -381,7 +443,7 @@ public class PuppLauncher {
     private void handleUserResponseResult() {
         if (dbs.isEmpty()) {
             System.out.println("Sorry, we did not find any match for your preferences.");
-            handleUserResponseToEnd();
+            handleUserResponseToRating();
         } else {
             System.out.println("Here are the results based on your preferences: ");
             printDogBreedNamesInResult();
@@ -462,29 +524,27 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToEnd() {
         System.out.println("Thank-you for choosing PuppFinder!");
-        System.out.println("Would you like to rate our service?");
+        System.out.println("Would you like your wish list saved in case you need to see it again?");
         while (runProgram) {
             String str;
             str = getUserInputString();
-            parseInputService(str);
+            parseInputWantSaveWishList(str);
         }
     }
 
     //EFFECTS: proceeds to the rating prompts or good bye message depending on the user input
     //Source: switch code taken from A3 TakeOut Order Solution
     //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
-    private void parseInputService(String str) {
+    private void parseInputWantSaveWishList(String str) {
         if (str.length() > 0) {
             switch (str) {
                 case YES_COMMAND:
-                    handleUserResponseToRating();
+                    saveWishList();
                     break;
                 case NO_COMMAND:
-                    endProgram();
-                    break;
-                case DOESNT_MATTER_COMMAND:
                     break;
             }
+            handleUserResponseToRating();
         }
     }
 
@@ -526,139 +586,6 @@ public class PuppLauncher {
             str = makePrettyString(str);
         }
         return str;
-    }
-
-    //MODIFIES: this
-    //EFFECTS: adds the remaining dogs to the dog breed set
-    private void addRestOfDogs() {
-        dbs.add(pekingnese);
-        dbs.add(papillon);
-        dbs.add(pomeranian);
-        dbs.add(rottweiler);
-        dbs.add(saintBernard);
-        dbs.add(samoyed);
-        dbs.add(scottishTerrier);
-        dbs.add(shitZu);
-        dbs.add(siberianHusky);
-        dbs.add(spanishMastiff);
-        dbs.add(vizsla);
-        dbs.add(yorkiPoo);
-        dbs.add(yorkshireTerrier);
-    }
-
-    //MODIFIES: this
-    //EFFECTS: add the first set of dog breeds to the dog breed set
-    private void addFirstSetOfDogs() {
-        dbs.add(americanEskimo);
-        dbs.add(americanPitbullTerrier);
-        dbs.add(australianCattleDog);
-        dbs.add(australianTerrier);
-        dbs.add(beardedCollie);
-        dbs.add(borderCollie);
-        dbs.add(bloodhound);
-        dbs.add(boxer);
-        dbs.add(drever);
-        dbs.add(filaBrasileiro);
-        dbs.add(finnishLaphund);
-        dbs.add(germanPinscher);
-        dbs.add(germanShepherd);
-        dbs.add(germanSpitz);
-        dbs.add(giantSchnauzer);
-        dbs.add(goldenRetriever);
-        dbs.add(gordonSetter);
-        dbs.add(ibizanHound);
-        dbs.add(icelandicSheepdog);
-        dbs.add(newfoundland);
-    }
-
-    //MODIFIES: this
-    //EFFECTS: sets up the list of dog breed
-    private void setupListOfDogBreed() {
-        initializeFirstSetOfDogs();
-        initializeSecondSetOfDogs();
-        initializeThirdSetOfDogs();
-        initializeFourthSetOfDogs();
-        addFirstSetOfDogs();
-        addRestOfDogs();
-
-    }
-
-    private void initializeFourthSetOfDogs() {
-        saintBernard = new DogBreed("Saint Bernard", 1, "large", 1,
-                1, 1, 1, 1, 1);
-        filaBrasileiro = new DogBreed("Fila Brasileiro", 0, "large", 1,
-                0, 0, 1, 0, 1);
-        rottweiler = new DogBreed("Rottweiler", 0, "large", 1,
-                1, 0, 1, 1, 1);
-        bloodhound = new DogBreed("Bloodhound", 0, "large", 1,
-                1, 1, 1, 1, 1);
-        newfoundland = new DogBreed("Newfoundland", 1, "large", 1,
-                1, 1, 1, 1, 1);
-        germanShepherd = new DogBreed("German Shepherd", 1, "large", 1,
-                1, 0, 1, 1, 1);
-        giantSchnauzer = new DogBreed("Giant Schnauzer", 1, "large", 1,
-                1, 1, 1, 0, 1);
-    }
-
-    private void initializeThirdSetOfDogs() {
-        australianCattleDog = new DogBreed("Australian Cattle Dog", 0, "medium", 1,
-                1, 1, 1, 0, 1);
-        americanPitbullTerrier = new DogBreed("American Pitbull Terrier", 0, "large", 1,
-                1, 0, 1, 1, 1);
-        boxer = new DogBreed("Boxer", 0, "large", 1,
-                1, 1, 1, 1, 1);
-        drever = new DogBreed("Drever", 0, "medium", 1,
-                1, 1, 1, 1, 1);
-        germanPinscher = new DogBreed("German Pinscher", 0, "medium", 1,
-                1, 0, 1, 0, 1);
-        ibizanHound = new DogBreed("Ibizan Hound", 0, "large", 1,
-                1, 1, 1, 1, 1);
-        vizsla = new DogBreed("Vizsla", 0, "large", 1,
-                1, 1, 1, 1, 1);
-        spanishMastiff = new DogBreed("Spanish Mastiff", 0, "large", 1,
-                1, 0, 1, 0, 1);
-    }
-
-    private void initializeSecondSetOfDogs() {
-        yorkshireTerrier = new DogBreed("Yorkshire Terrier", 1, "small", 1,
-                0, 1, 1, 0, 1);
-        beardedCollie = new DogBreed("Bearded Collie", 1, "large", 1,
-                1, 1, 1, 1, 1);
-        borderCollie = new DogBreed("Border Collie", 1, "medium", 1,
-                1, 1, 1, 1, 1);
-        finnishLaphund = new DogBreed("Finnish Laphund", 1, "medium", 1,
-                1, 1, 1, 1, 1);
-        gordonSetter = new DogBreed("Gordon Setter", 1, "large", 1,
-                1, 0, 1, 1, 1);
-        goldenRetriever = new DogBreed("Golden Retriever", 1, "large", 1,
-                1, 1, 1, 1, 1);
-        icelandicSheepdog = new DogBreed("Icelandic Sheepdog", 1, "medium", 1,
-                1, 0, 1, 0, 1);
-        siberianHusky = new DogBreed("Siberian Husky", 1, "large", 1,
-                1, 1, 1, 1, 1);
-        samoyed = new DogBreed("Samoyed", 1, "large", 1,
-                1, 1, 1, 1, 1);
-    }
-
-    public void initializeFirstSetOfDogs() {
-        americanEskimo = new DogBreed("American Eskimo", 1, "medium", 1,
-                1, 1, 1, 1, 1);
-        australianTerrier = new DogBreed("Australian Terrier", 1, "small", 1,
-                0, 0, 1, 1, 1);
-        germanSpitz = new DogBreed("German Spitz", 1, "medium", 1,
-                1, 1, 1, 1, 1);
-        papillon = new DogBreed("Papillon", 1, "small", 1,
-                1, 1, 1, 1, 1);
-        pekingnese = new DogBreed("Pekingnese", 1, "small", 0,
-                0, 0, 0, 0, 1);
-        pomeranian = new DogBreed("Pomeranian", 1, "small", 1,
-                1, 0, 0, 1, 1);
-        shitZu = new DogBreed("Shi Tzu", 1, "small", 0,
-                1, 1, 1, 1, 1);
-        scottishTerrier = new DogBreed("Scottish Terrier", 1, "medium", 1,
-                0, 1, 1, 1, 1);
-        yorkiPoo = new DogBreed("Yorki Poo", 1, "small", 1,
-                0, 1, 1, 0, 1);
     }
 
     //EFFECTS: formats the given string so it is pretty
