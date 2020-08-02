@@ -13,6 +13,9 @@ import java.io.UnsupportedEncodingException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//***Test code source: TellerApp
+//https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
+
 public class WriterTest {
     public static final String TEST_FILE_WISH_LIST= "./data/testWriteWishList.txt";
     private Writer testWriter;

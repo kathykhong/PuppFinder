@@ -1,6 +1,6 @@
 package ui;
 
-import model.DogBreed;
+
 import model.DogBreedSet;
 import model.WishList;
 import persistence.Reader;
@@ -19,6 +19,7 @@ import java.util.Scanner;
 public class PuppLauncher {
     private static final String WISH_LIST_FILE = "./data/wishList.txt";
     private static final String DOG_BREED_SET_FILE = "./data/initalDogBreeds.txt";
+
     DogBreedSet dbs = new DogBreedSet();
     WishList wishList;
     private static final String VIEW_COMMAND = "view";
@@ -55,6 +56,8 @@ public class PuppLauncher {
 
     // MODIFIES: this
     // EFFECTS: loads the wish list from the WISH_LIST_FILE
+    //Source code from TellerApp
+    ////https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
     private void loadWishList() {
         try {
             this.wishList = Reader.readWishList(new File(WISH_LIST_FILE));
@@ -65,6 +68,8 @@ public class PuppLauncher {
 
     //MODIFIES: this
     //EFFECT: loads the initial dog breed set
+    //Source code from TellerApp
+    ////https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
     private void loadInitialDogBreedSet() {
         try {
             this.dbs = Reader.readDogBreadSet(new File(DOG_BREED_SET_FILE));
@@ -81,13 +86,15 @@ public class PuppLauncher {
     }
 
     //EFFECTS: saves the state of the wish list to the WISH_LIST_FILE
+    //Source code from TellerApp
+    ////https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
     private void saveWishList() {
         try {
             Writer writer = new Writer(new File(WISH_LIST_FILE));
             for (int i = 0; i < wishList.size(); i++) {
                 writer.write(wishList.get(i));
-
             }
+
             writer.close();
             System.out.println("Wish List is saved to file:  " + WISH_LIST_FILE);
         } catch (FileNotFoundException e) {
@@ -135,6 +142,10 @@ public class PuppLauncher {
         }
     }
 
+    //EFFECTS: prints out saved wishList and prompts user options to
+    //quit or begin questionaire
+    //Source: switch code taken from A3 TakeOut Order Solution
+    //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
     private void handleUserResponseToSavedWishList() {
         if (!wishList.isEmpty()) {
             System.out.println("Here is your wish list:");
@@ -153,6 +164,9 @@ public class PuppLauncher {
         }
     }
 
+    //EFFECTS: depending on user input either ends program or begins questionaire
+    //Source: switch code taken from A3 TakeOut Order Solution
+    //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
     private void parseInputSavedWishList(String str) {
         if (str.length() > 0) {
             switch (str) {
@@ -457,15 +471,11 @@ public class PuppLauncher {
     //Source: while loop taken from B1: FitLifeGymChain Practice Problem
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToMoreWishList() {
-        if (!dbs.isEmpty()) {
-            System.out.println("Would you like to add more to your wish list?");
-            while (runProgram) {
-                String str;
-                str = getUserInputString();
-                parseInputWishList(str);
-            }
-        } else {
-            handleUserResponseToEnd();
+        System.out.println("Would you like to add more to your wish list?");
+        while (runProgram) {
+            String str;
+            str = getUserInputString();
+            parseInputWishList(str);
         }
     }
 
@@ -518,8 +528,7 @@ public class PuppLauncher {
         }
     }
 
-
-    //EFFECTS: prompts user to rate the service and processes the user input
+    //EFFECTS: prompts user to save their wish list processes the user input
     //Source: while loop taken from B1: FitLifeGymChain Practice Problem
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToEnd() {
@@ -532,7 +541,7 @@ public class PuppLauncher {
         }
     }
 
-    //EFFECTS: proceeds to the rating prompts or good bye message depending on the user input
+    //EFFECTS: saves wish list depending on user input and proceeds to the rating prompts
     //Source: switch code taken from A3 TakeOut Order Solution
     //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
     private void parseInputWantSaveWishList(String str) {

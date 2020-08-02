@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 // A writer that can write the user wish list to file
+//** Writer code taken from TellerApp:
+//https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
 public class Writer {
     private PrintWriter printWriter;
 

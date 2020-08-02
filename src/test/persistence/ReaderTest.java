@@ -12,13 +12,15 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//***Test code source: TellerApp
+//https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
+
 public class ReaderTest {
     private Reader testReader;
 
     @BeforeEach
     public void setUp() {
         testReader = new Reader();
-
     }
 
     @Test

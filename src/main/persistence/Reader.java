@@ -13,6 +13,8 @@ import java.util.List;
 
 // A reader that can read the saved wish list and
 //the dog breed data from file when app launches
+//***Parsing methods and read methods source: TellerApp
+//https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
 public class Reader {
     public static final String DELIMITER = ",";
 
