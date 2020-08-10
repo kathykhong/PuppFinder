@@ -3,6 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //test class for Dog Breed
@@ -12,8 +15,8 @@ public class DogBreedTest {
 
      @BeforeEach
     public void  setUp() {
-         testDogBreed =  new DogBreed("Test Dog Breed", 1, "medium", 0,
-                 1, 0, 0, 1, 1);
+         testDogBreed =  new DogBreed("Test Dog Breed", 1, "medium", 0, 1, 0, 0, 1,
+                 1, new ImageIcon("./data/spanishMastiff.jpg"), new File("./data/spanishMastiff.txt"));
      }
 
      @Test
@@ -26,6 +29,8 @@ public class DogBreedTest {
          assertEquals(testDogBreed.getKidFriendly(), 0);
          assertEquals(testDogBreed.getStrangerFriendly(), 1);
          assertEquals(testDogBreed.getIntelligence(), 1);
+         assertEquals(testDogBreed. getImageFile().toString(), "./data/spanishMastiff.jpg");
+         assertEquals(testDogBreed.getTextInfo().toString(),"./data/spanishMastiff.txt");
 
 
      }

@@ -7,6 +7,9 @@ package model;
 import persistence.Reader;
 import persistence.Saveable;
 
+
+import javax.swing.*;
+import java.io.File;
 import java.io.PrintWriter;
 
 public class DogBreed implements Saveable {
@@ -19,6 +22,8 @@ public class DogBreed implements Saveable {
     private int strangerFriendly;
     private int intelligence;
     private int shedALot;
+    private ImageIcon image;
+    private  File textInfo;
 
 
     //EFFECTS : constructs DogBreed with given name and numerous characteristics
@@ -30,7 +35,9 @@ public class DogBreed implements Saveable {
                     Integer dogFriendly,
                     Integer kidFriendly,
                     Integer strangerFriendly,
-                    Integer intelligence) {
+                    Integer intelligence,
+                    ImageIcon image,
+                    File textInfo) {
         this.name = name;
         this.fluff = fluff;
         this.size = size;
@@ -40,7 +47,8 @@ public class DogBreed implements Saveable {
         this.shedALot = shedALot;
         this.intelligence = intelligence;
         this.energetic = energetic;
-
+        this.image = image;
+        this.textInfo = textInfo;
     }
 
     //GETTERS:
@@ -80,6 +88,14 @@ public class DogBreed implements Saveable {
         return shedALot;
     }
 
+    public ImageIcon getImageFile() {
+        return image;
+    }
+
+    public File getTextInfo() {
+        return textInfo;
+    }
+
 
     //*Source :
     //https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
@@ -102,6 +118,10 @@ public class DogBreed implements Saveable {
         printWriter.print(strangerFriendly);
         printWriter.print(Reader.DELIMITER);
         printWriter.print(intelligence);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(image);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(textInfo);
         printWriter.print("\n");
 
     }

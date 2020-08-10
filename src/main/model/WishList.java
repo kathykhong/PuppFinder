@@ -16,7 +16,16 @@ public class WishList {
     //MODIFIES: this
     //EFFECTS: adds db to the wish list
     public void add(DogBreed db) {
-        myList.add(db);
+        if (!myList.contains(db)) {
+            myList.add(db);
+        }
+    }
+
+    public void remove(DogBreed db) {
+        if (myList.contains(db)) {
+            myList.remove(db);
+        }
+
     }
 
     //EFFECTS: returns the size of the wish list

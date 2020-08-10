@@ -4,12 +4,10 @@ package ui;
 import model.DogBreedSet;
 import model.WishList;
 import persistence.Reader;
-import persistence.Writer;
+import ui.guis.SavedWishList;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 //Class represents the PuppFinder application
@@ -18,8 +16,7 @@ import java.util.Scanner;
 
 public class PuppLauncher {
     private static final String WISH_LIST_FILE = "./data/wishList.txt";
-    private static final String DOG_BREED_SET_FILE = "./data/initalDogBreeds.txt";
-
+    private static final String DOG_BREED_SET_FILE = "./data/initialDogBreeds.txt";
     DogBreedSet dbs = new DogBreedSet();
     WishList wishList;
     private static final String VIEW_COMMAND = "view";
@@ -32,7 +29,7 @@ public class PuppLauncher {
     private static final String NO_COMMAND = "no";
     private static final String ENERGETIC_COMMAND = "energetic";
     private static final String CALM_COMMAND = "calm";
-    private static final String DOESNT_MATTER_COMMAND = "doesn't matter";
+    private static final String DOESNT_MATTER_COMMAND = "dm";
 
     private Scanner input;
     private boolean runProgram;
@@ -50,12 +47,10 @@ public class PuppLauncher {
         loadInitialDogBreedSet();
         loadWishList();
         handleUserResponseToWelcome();
-
-
     }
 
     // MODIFIES: this
-    // EFFECTS: loads the wish list from the WISH_LIST_FILE
+    // EFFECTS: loads the wish list from the WISH_LIST_FILE if no file exists, initializes empty wish list
     //Source code from TellerApp
     ////https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
     private void loadWishList() {
@@ -82,28 +77,6 @@ public class PuppLauncher {
     //EFFECTS: initializes the wish list
     private void initializeWishList() {
         this.wishList = new WishList();
-
-    }
-
-    //EFFECTS: saves the state of the wish list to the WISH_LIST_FILE
-    //Source code from TellerApp
-    ////https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
-    private void saveWishList() {
-        try {
-            Writer writer = new Writer(new File(WISH_LIST_FILE));
-            for (int i = 0; i < wishList.size(); i++) {
-                writer.write(wishList.get(i));
-            }
-
-            writer.close();
-            System.out.println("Wish List is saved to file:  " + WISH_LIST_FILE);
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to save Wish List to " + WISH_LIST_FILE);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            //due to programming error
-        }
-
     }
 
     //EFFECTS: prints out welcome message and processes user input
@@ -134,10 +107,9 @@ public class PuppLauncher {
                     handleUserResponseToFluff();
                     break;
                 case QUIT_COMMAND:
-                    handleUserResponseToEnd();
+                    endProgram();
                 case VIEW_COMMAND:
                     handleUserResponseToSavedWishList();
-
             }
         }
     }
@@ -149,7 +121,7 @@ public class PuppLauncher {
     private void handleUserResponseToSavedWishList() {
         if (!wishList.isEmpty()) {
             System.out.println("Here is your wish list:");
-            printWishListDogBreedNames();
+            new SavedWishList(wishList);
             System.out.println("If you think your preferences have changed: ");
         } else {
             System.out.println("There are no dog breeds in the Wish List");
@@ -160,7 +132,6 @@ public class PuppLauncher {
         while (runProgram) {
             str = getUserInputString();
             parseInputSavedWishList(str);
-
         }
     }
 
@@ -218,7 +189,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToSize() {
         System.out.println("Do you prefer small dogs (<=25 lbs), medium dogs (26-45 lbs), or large dogs (46lbs +) ?");
-        System.out.println("Please enter 'small', 'medium', 'large', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'small', 'medium', 'large', or 'dm' (doesn't matter) for your response");
         System.out.println("Size guide: ");
         System.out.println("Small dogs: ~4-25 lbs");
         System.out.println("Medium dogs: ~25-45 lbs ");
@@ -227,7 +198,6 @@ public class PuppLauncher {
         while (runProgram) {
             str = getUserInputString();
             parseInputSize(str);
-
         }
     }
 
@@ -258,7 +228,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToEnergetic() {
         System.out.println("Would you like your dog to be energetic or calm?");
-        System.out.println("Please enter 'energetic', 'calm' or 'doesn't matter' for your response");
+        System.out.println("Please enter 'energetic', 'calm' or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -290,7 +260,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToShedALot() {
         System.out.println("Are you comfortable with your dog shedding a lot?");
-        System.out.println("Please enter 'yes', 'no', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -323,7 +293,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToDogFriendly() {
         System.out.println("Do you prefer your dog to be friendly with other dogs ?");
-        System.out.println("Please enter 'yes', 'no', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -356,7 +326,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToKidFriendly() {
         System.out.println("Do you prefer your dog to be friendly with children?");
-        System.out.println("Please enter 'yes', 'no', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -389,7 +359,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToStrangerFriendly() {
         System.out.println("Do you prefer your dog to be friendly with strangers?");
-        System.out.println("Please enter 'yes', 'no', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -422,7 +392,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToIntelligence() {
         System.out.println("Do you prefer your dog to be smart?");
-        System.out.println("Please enter 'yes', 'no', or 'doesn't matter' for your response");
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -457,112 +427,18 @@ public class PuppLauncher {
     private void handleUserResponseResult() {
         if (dbs.isEmpty()) {
             System.out.println("Sorry, we did not find any match for your preferences.");
-            handleUserResponseToRating();
         } else {
             System.out.println("Here are the results based on your preferences: ");
-            printDogBreedNamesInResult();
-            handleUserResponseToWishList();
-            handleUserResponseToMoreWishList();
-        }
-    }
+            new GuiStarter(dbs, wishList);
 
-    //EFFECTS: prompts user to add more dog breeds from result to wish list
-    //and handles user input
-    //Source: while loop taken from B1: FitLifeGymChain Practice Problem
-    //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
-    private void handleUserResponseToMoreWishList() {
-        System.out.println("Would you like to add more to your wish list?");
-        while (runProgram) {
-            String str;
-            str = getUserInputString();
-            parseInputWishList(str);
         }
-    }
-
-
-    //EFFECTS: prompts user to add a dog breed from the result to the wish list
-    //and handles the response
-    private void handleUserResponseToWishList() {
-        System.out.println("Please enter the dog breed you would like to add to the wishList: ");
-        String dogName = getUserInputString();
-        for (int i = 0; i < dbs.size(); i++) {
-            if (dogName.equalsIgnoreCase(dbs.get(i).getName())) {
-                wishList.add(dbs.get(i));
-            }
-        }
-        System.out.println("Here is your wish list:");
-        printWishListDogBreedNames();
-        handleUserResponseToMoreWishList();
-    }
-
-    //EFFECTS: allow user to add more dog breeds to the wish list or proceed to the
-    //rating prompts depending on the user input
-    //Source: switch code taken from A3 TakeOut Order Solution
-    //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
-    private void parseInputWishList(String str) {
-        if (str.length() > 0) {
-            switch (str) {
-                case YES_COMMAND:
-                    handleUserResponseToWishList();
-                    break;
-                case NO_COMMAND:
-                    handleUserResponseToEnd();
-                    break;
-            }
-        }
-    }
-
-    //EFFECTS: prints the names of all the dog breeds in the wish list
-    private void printWishListDogBreedNames() {
-        for (int i = 0; i < wishList.size(); i++) {
-            String name = wishList.get(i).getName();
-            System.out.println(name);
-        }
-    }
-
-    //EFFECTS: print the names of all the dog breeds in the resulting set
-    public void printDogBreedNamesInResult() {
-        for (int i = 0; i < dbs.size(); i++) {
-            String name = dbs.get(i).getName();
-            System.out.println(name);
-        }
-    }
-
-    //EFFECTS: prompts user to save their wish list processes the user input
-    //Source: while loop taken from B1: FitLifeGymChain Practice Problem
-    //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
-    private void handleUserResponseToEnd() {
-        System.out.println("Thank-you for choosing PuppFinder!");
-        System.out.println("Would you like your wish list saved in case you need to see it again?");
-        while (runProgram) {
-            String str;
-            str = getUserInputString();
-            parseInputWantSaveWishList(str);
-        }
-    }
-
-    //EFFECTS: saves wish list depending on user input and proceeds to the rating prompts
-    //Source: switch code taken from A3 TakeOut Order Solution
-    //https://github.com/UBCx-Software-Construction/data-abstraction-solutions.git
-    private void parseInputWantSaveWishList(String str) {
-        if (str.length() > 0) {
-            switch (str) {
-                case YES_COMMAND:
-                    saveWishList();
-                    break;
-                case NO_COMMAND:
-                    break;
-            }
-            handleUserResponseToRating();
-        }
+        handleUserResponseToRating();
     }
 
     //EFFECTS: prints the good-bye message to end the program
     private void endProgram() {
         System.out.println("Thank-you for choosing PuppFinder!");
-
     }
-
 
     //EFFECTS: prompts the user to give a rating for the quality of service
     //Source: while loop taken from B1: FitLifeGymChain Practice Problem

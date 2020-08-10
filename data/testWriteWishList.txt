@@ -1,0 +1,2 @@
+German Pinscher,0,medium,1,1,0,1,0,1,./data/germanPinscher.jpg,./data/germanPinscher.txt
+Gordon Setter,1,large,1,1,0,1,1,1,./data/gordonSetter.png,./data/gordonSetter.txt

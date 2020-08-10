@@ -3,6 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 //test class for DogBreedSet
@@ -38,7 +41,6 @@ public class DogBreedSetTest {
         testSetEmpty.add(testDogBreed3);
         assertTrue(testSetEmpty.contains(testDogBreed2));
         assertTrue(testSetEmpty.contains(testDogBreed3));
-
     }
 
     @Test
@@ -584,24 +586,24 @@ public class DogBreedSetTest {
     }
 
     private void initializeDogBreeds() {
-        testDogBreed1 = new DogBreed("Test Dog 1", 1, "small", 1, 1,
-                1, 1,1,1);
-        testDogBreed2 = new DogBreed("Test Dog 2", 1, "medium", 0, 0,
-                0, 0,0,0);
-        testDogBreed3 = new DogBreed("Test Dog 3", 1, "small", 0, 0,
-                1, 0,1,1);
-        testDogBreed4 = new DogBreed("Test Dog 4", 0, "medium", 1, 1,
-                0, 1,1,0);
-        testDogBreed5 = new DogBreed("Test Dog 5", 0, "large", 0, 1,
-                1, 1,0,0);
-        testDogBreed6 = new DogBreed("Test Dog 6", 0, "large", 1, 0,
-                0, 0,0,1);
-        testDogBreed7 = new DogBreed("Test Dog 7", 1, "small", 0, 1,
-                1, 1,1,1);
-        testDogBreed8 = new DogBreed("Test Dog 8", 0, "medium", 1, 0,
-                0, 0,0,0);
-        testDogBreed9 = new DogBreed("Test Dog 9", 1, "large", 0, 1,
-                1, 1,1,1);
+        testDogBreed1 = new DogBreed("Test Dog 1", 1, "small", 1, 1, 1, 1,1,1,
+                new ImageIcon("./data/australianCattleDog.jpg"), new File("./data/australianCattleDog.txt"));
+        testDogBreed2 = new DogBreed("Test Dog 2", 1, "medium", 0, 0, 0, 0,0,0,
+                new ImageIcon("./data/americanPitbullTerrier.jpg"), new File("./data/americanPitbullTerrier.txt"));
+        testDogBreed3 = new DogBreed("Test Dog 3", 1, "small", 0, 0, 1, 0,1,1,
+                new ImageIcon("./data/americanPitbullTerrier.jpg"), new File("./data/americanPitbullTerrier.txt"));
+        testDogBreed4 = new DogBreed("Test Dog 4", 0, "medium", 1, 1, 0, 1,1,0,
+                new ImageIcon("./data/boxer.png"), new File("./data/boxer.txt"));
+        testDogBreed5 = new DogBreed("Test Dog 5", 0, "large", 0, 1, 1, 1,0,0,
+                new ImageIcon("./data/drever.jpg"), new File("./data/drever.txt"));
+        testDogBreed6 = new DogBreed("Test Dog 6", 0, "large", 1, 0, 0, 0,0,1,
+                new ImageIcon("./data/germanPinscher.jpg"), new File("./data/germanPinscher.txt"));
+        testDogBreed7 = new DogBreed("Test Dog 7", 1, "small", 0, 1, 1, 1,1,1,
+                new ImageIcon("./data/ibizanHound.jpg"), new File("./data/ibizanHound.txt"));
+        testDogBreed8 = new DogBreed("Test Dog 8", 0, "medium", 1, 0, 0, 0,0,0,
+                new ImageIcon("./data/vizsla.jpg"), new File("./data/vizsla.txt"));
+        testDogBreed9 = new DogBreed("Test Dog 9", 1, "large", 0, 1, 1, 1,1,1,
+                new ImageIcon("./data/spanishMastiff.jpg"), new File("./data/spanishMastiff.txt"));
     }
 
     private void addAllDogBreedsToTestSet() {

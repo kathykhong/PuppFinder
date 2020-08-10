@@ -1,2 +1,2 @@
-Yorkshire Terrier,1,small,1,0,1,1,0,1
-Bearded Collie,1,large,1,1,1,1,1,1
+Yorkshire Terrier,1,small,1,0,1,1,0,1,./data/yorkshireTerrier.jpg,./data/yorkshireTerrier.txt
+Bearded Collie,1,large,1,1,1,1,1,1,./data/beardedCollie.jpg,./data/beardedCollie.txt

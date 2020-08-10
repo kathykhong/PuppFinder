@@ -30,13 +30,32 @@ preferred characteristics, and narrow down our options.
 
 - As a user, I want to be able to answer questions that help me narrow down the dog breeds that exist to the ones that cater to my preferences
 - As a user, I want to be able to view the results of the dog breeds that match my responses
+- As a user, I want to be able to view an image of the selected dog breed in the results
 - As a user, I want to be able to select a dog breed or multiple dog breeds in the resulting collection and add it to a WishList
-- As a user, I want to be able to rate the quality of service in the PuppFinder application
+- As a user, I want to be able to view my wish list and delete a selected dog if desired
+- As a user, I want to be able to read more information about a selected dog breed in the wish list
 - As a user, I want to be able to save the results of my wishList to file
+- As a user, I want to be able to rate the quality of service in the PuppFinder application
 - As a user, I want to be able to load the results of my wishList when the program starts
 
 <br>
 <br>
+
+<h3>Instructions for Grader </h3>
+
+- You can generate the first required event by selecting a dog breed in the dog breed results and clicking the "Add to Wish List" button. 
+To view the dog breeds that were added to the wish list, click the "Wish List" button.
+
+- You can generate the second required event by selecting a dog breed in the wish list and clicking the "More Info" button.
+
+- You can generate the third required event by selecting a dog breed in the wish list and clicking the "Delete" button.
+
+- You can locate my visual component by selecting a dog breed and clicking the "View Image" button in the dog breed results.
+
+- You can save the state of my application by clicking the "Save" button in the wish list. 
+
+- The application automatically reloads, however, you can type "view" upon starting the application to see the previously saved 
+wish list.
 
 
  

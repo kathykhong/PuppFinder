@@ -1,0 +1,33 @@
+Australian Cattle Dog,0,medium,1,1,1,1,0,1,./data/australianCattleDog.jpg,./data/australianCattleDog.txt
+American Pitbull Terrier,0,large,1,1,0,1,1,1,./data/americanPitbullTerrier.jpg,./data/americanPitbullTerrier.txt
+Boxer,0,large,1,1,1,1,1,1,./data/boxer.png,./data/boxer.txt
+Drever,0,medium,1,1,1,1,1,1,./data/drever.jpg,./data/drever.txt
+German Pinscher,0,medium,1,1,0,1,0,1,./data/germanPinscher.jpg,./data/germanPinscher.txt
+Ibizan Hound,0,large,1,1,1,1,1,1,./data/ibizanHound.jpg,./data/ibizanHound.txt
+Vizsla,0,large,1,1,1,1,1,1,./data/vizsla.jpg,./data/vizsla.txt
+Spanish Mastiff,0,large,1,1,0,1,0,1,./data/spanishMastiff.jpg,./data/spanishMastiff.txt
+Yorkshire Terrier,1,small,1,0,1,1,0,1,./data/yorkshireTerrier.jpg,./data/yorkshireTerrier.txt
+Bearded Collie,1,large,1,1,1,1,1,1,./data/beardedCollie.jpg,./data/beardedCollie.txt
+Border Collie,1,medium,1,1,1,1,1,1,./data/borderCollie.jpg,./data/borderCollie.txt
+Finnish Laphund,1,medium,1,1,1,1,1,1,./data/finnishLaphund.jpg,./data/finnishLaphund.txt
+Gordon Setter,1,large,1,1,0,1,1,1,./data/gordonSetter.png,./data/gordonSetter.txt
+Golden Retriever,1,large,1,1,1,1,1,1,./data/goldenRetriever.jpg,./data/goldenRetriever.txt
+Icelandic Sheepdog,1,medium,1,1,0,1,0,1,./data/icelandicSheepDog.jpg,./data/icelandicSheepDog.txt
+Siberian Husky,1,large,1,1,1,1,1,1,./data/siberianHusky.jpg,./data/siberianHusky.txt
+Samoyed,1,large,1,1,1,1,1,1,./data/samoyed.jpg,./data/samoyed.txt
+American Eskimo,1,medium,1,1,1,1,1,1,./data/americanEskimo.jpg,./data/americanEskimo.txt
+Australian Terrier,1,small,1,0,0,1,1,1,./data/australianTerrier.jpg,./data/australianTerrier.txt
+German Spitz,1,medium,1,1,1,1,1,1,./data/germanSpitz.jpg,./data/germanSpitz.txt
+Papillon,1,small,1,1,1,1,1,1,./data/papillon.jpg,./data/papillon.txt
+Pekingnese,1,small,0,0,0,0,0,1,./data/pekingnese.jpg,./data/pekingnese.txt
+Pomeranian,1,small,1,1,0,0,1,1,./data/pomeranian.jpg,./data/pomeranian.txt
+Shi Tzu,1,small,0,1,1,1,1,1,./data/shiTzu.jpg,./data/shiTzu.txt
+Scottish Terrier,1,medium,1,0,1,1,1,1,./data/scottishTerrier.jpg,./data/scottishTerrier.txt
+Yorki Poo,1,small,1,0,1,1,0,1,./data/yorkiPoo.jpg,./data/yorkiPoo.txt
+Saint Bernard,1,large,1,1,1,1,1,1,./data/saintBernard.jpg,./data/saintBernard.txt
+Fila Brasileiro,0,large,1,0,0,1,0,1,./data/filaBrasileiro.jpg,./data/filaBrasileiro.txt
+Rottweiler,0,large,1,1,0,1,1,1,./data/rottweiler.jpg,./data/rottweiler.txt
+Bloodhound,0,large,1,1,1,1,1,1,./data/bloodhound.jpg,./data/bloodhound.txt
+Newfoundland,1,large,1,1,1,1,1,1,./data/newfoundland.jpg,./data/newfoundland.txt
+German Shepherd,1,large,1,1,0,1,1,1,./data/germanShepherd.jpg,./data/germanShepherd.txt
+Giant Schnauzer,1,large,1,1,1,1,0,1,./data/giantSchnauzer.jpg,./data/giantSchnauzer.txt

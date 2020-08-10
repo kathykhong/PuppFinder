@@ -4,6 +4,7 @@ import model.DogBreed;
 import model.DogBreedSet;
 import model.WishList;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,6 +52,9 @@ public class Reader {
     private static WishList parseWishListContent(List<String> fileContent) {
         WishList wishList = new WishList();
         for (String line : fileContent) {
+            if (fileContent.contains("")) {
+                return wishList;
+            }
             ArrayList<String> lineComponents = splitString(line);
             wishList.add(parseDogBreed(lineComponents));
         }
@@ -77,8 +81,10 @@ public class Reader {
         int isKidFriendliness = Integer.parseInt(components.get(6));
         int isStrangerFriendly = Integer.parseInt(components.get(7));
         int isIntelligent = Integer.parseInt(components.get(8));
-        return new DogBreed(name, fluffiness, size, isEnergetic, doesShedALot,
-                isDogFriendly, isKidFriendliness, isStrangerFriendly, isIntelligent);
+        String imageName = components.get(9);
+        String textName = components.get(10);
+        return new DogBreed(name, fluffiness, size, isEnergetic, doesShedALot, isDogFriendly, isKidFriendliness,
+                isStrangerFriendly, isIntelligent, new ImageIcon(imageName), new File(textName));
     }
 }
 

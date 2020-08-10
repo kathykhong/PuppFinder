@@ -26,7 +26,7 @@ public class ReaderTest {
     @Test
     public void testParseDogBreedFromWishList() {
         try {
-            WishList testWishList = Reader.readWishList(new File("./data/testReadWishList.txt"));
+            WishList testWishList = testReader.readWishList(new File("./data/testReadWishList.txt"));
 
             DogBreed dogBreed1 = testWishList.get(0);
             checkDogBreed1Getter(dogBreed1);
@@ -40,7 +40,7 @@ public class ReaderTest {
     @Test
     public void testParseDogBreedFromDogBreedSet() {
         try {
-            DogBreedSet dbSet = Reader.readDogBreadSet(new File ("./data/testReadDogBreeds.txt"));
+            DogBreedSet dbSet = testReader.readDogBreadSet(new File ("./data/testReadDogBreeds.txt"));
             DogBreed dogBreed3 = dbSet.get(0);
             checkDogBreed3Getter(dogBreed3);
             DogBreed dogBreed4 = dbSet.get(1);
@@ -54,7 +54,7 @@ public class ReaderTest {
     @Test
     public void testIOExceptionWishListFile (){
         try {
-            Reader.readWishList(new File("./path/does/not/exist/testReadWishList.txt"));
+            testReader.readWishList(new File("./path/does/not/exist/testReadWishList.txt"));
             fail("Exception expected");
         } catch (IOException e) {
             // expected
@@ -64,7 +64,7 @@ public class ReaderTest {
     @Test
     public void testIOExceptionDogBreedFile (){
         try {
-            Reader.readDogBreadSet(new File("./path/does/not/exist/testDogBreeds.txt"));
+            testReader.readDogBreadSet(new File("./path/does/not/exist/testDogBreeds.txt"));
             fail("Exception expected");
         } catch (IOException e) {
             // expected

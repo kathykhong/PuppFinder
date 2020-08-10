@@ -5,6 +5,7 @@ import model.WishList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,10 +25,10 @@ public class WriterTest {
     @BeforeEach
     public void setUp() throws FileNotFoundException, UnsupportedEncodingException {
         testWriter = new Writer(new File(TEST_FILE_WISH_LIST));
-        DogBreed dogBreed1 = new DogBreed("German Pinscher", 0, "medium", 1,
-                1, 0, 1, 0, 1);
-        DogBreed dogBreed2 = new DogBreed("Gordon Setter", 1, "large", 1,
-                1, 0, 1, 1, 1);
+        DogBreed dogBreed1 = new DogBreed("German Pinscher", 0, "medium", 1, 1, 0, 1, 0, 1,
+                new ImageIcon("./data/germanPinscher.jpg"), new File("./data/germanPinscher.txt"));
+        DogBreed dogBreed2 = new DogBreed("Gordon Setter", 1, "large", 1, 1, 0, 1, 1, 1,
+                new ImageIcon("./data/gordonSetter.png"), new File("./data/gordonSetter.txt"));
         wishList = new WishList();
         wishList.add(dogBreed1);
         wishList.add(dogBreed2);
