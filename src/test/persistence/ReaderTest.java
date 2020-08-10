@@ -3,6 +3,7 @@ package persistence;
 import model.DogBreed;
 import model.DogBreedSet;
 import model.WishList;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,6 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 //https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
 
 public class ReaderTest {
+    private Reader testReader;
+
+    @BeforeEach
+    public void setUp() {
+        testReader = new Reader();
+    }
+
 
     @Test
     public void testParseDogBreedFromWishList() {
