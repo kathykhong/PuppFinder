@@ -30,6 +30,7 @@ public class WishListTest {
     @Test
     public void testAdd() {
         assertTrue(testWishList.isEmpty());
+        assertEquals(testWishList.size(), 0);
         testWishList.add(testDogBreed1);
         assertEquals(testWishList.size(), 1);
         assertTrue(testWishList.contains(testDogBreed1));
@@ -39,6 +40,20 @@ public class WishListTest {
         assertEquals(testWishList.size(), 3);
         assertTrue(testWishList.contains(testDogBreed2));
         assertTrue(testWishList.contains(testDogBreed3));
+    }
+
+    @Test
+    public void testAddAlreadyThere() {
+        assertTrue(testWishList.isEmpty());
+        assertEquals(testWishList.size(), 0);
+        testWishList.add(testDogBreed1);
+        testWishList.add(testDogBreed2);
+        assertEquals(testWishList.size(), 2);
+        assertTrue(testWishList.contains(testDogBreed1));
+        assertTrue(testWishList.contains(testDogBreed2));
+
+        testWishList.add(testDogBreed2);
+        assertEquals(testWishList.size(), 2);
     }
 
     @Test

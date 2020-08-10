@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //Class represents the response upon clicking the add button in the dog breed results
+//Code sourced from List Demo Tutorial:
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
+
 public class AddToWishListListener implements ActionListener {
     private JList list;
     private JButton button;

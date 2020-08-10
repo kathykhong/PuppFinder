@@ -8,7 +8,8 @@ import java.awt.*;
 
 //Class represents the Gui initialization for the dog breed results
 //after the questionaire
-
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class GuiStarter {
 
     public GuiStarter(DogBreedSet dogBreedResults, WishList wishList)  {

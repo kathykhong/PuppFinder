@@ -17,6 +17,8 @@ import java.awt.*;
 //users are able to view the results and have the option to view the image of the
 //selected dog, add them to a wish list, and view the wish list
 
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class PuppResultGUI extends JPanel implements ListSelectionListener {
     private JList list;
     private static final String ADD_TO_WISH_LIST_STRING = "Add to Wish List";

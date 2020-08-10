@@ -10,7 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 //Class represents the response upon clicking the save button in the wish list
-
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class SaveListener implements ActionListener {
     private WishList wishList;
     private static final String WISH_LIST_FILE = "./data/wishList.txt";

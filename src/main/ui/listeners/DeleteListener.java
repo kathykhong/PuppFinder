@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //Class represents the response upon clicking the delete button in the wish list
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class DeleteListener implements ActionListener {
     private WishList wishList;
     private JButton button;

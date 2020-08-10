@@ -22,9 +22,7 @@ public class WishList {
     }
 
     public void remove(DogBreed db) {
-        if (myList.contains(db)) {
-            myList.remove(db);
-        }
+        myList.remove(db);
 
     }
 

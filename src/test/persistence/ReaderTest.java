@@ -3,7 +3,6 @@ package persistence;
 import model.DogBreed;
 import model.DogBreedSet;
 import model.WishList;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

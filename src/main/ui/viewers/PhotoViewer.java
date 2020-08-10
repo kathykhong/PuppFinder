@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 //Class represents a photo viewer that displays an image of the selected dog breed
-
+//Source: PhotoViewer https://github.students.cs.ubc.ca/CPSC210/Lab1-Photoviewer.git
 public class PhotoViewer extends JFrame {
     private static final int WIDTH = 700;
     private static final int HEIGHT = 600;

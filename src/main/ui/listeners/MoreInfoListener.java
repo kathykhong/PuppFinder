@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 //Class represents the response upon clicking the more info button in the wish list
-
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class MoreInfoListener implements ActionListener {
     private JList list;
     private DefaultListModel listModel;

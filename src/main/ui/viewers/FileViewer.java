@@ -15,6 +15,11 @@ public class FileViewer {
     private static final int WIDTH = 700;
     private static final int HEIGHT = 600;
 
+    //Code for frame and text area construction source: ListDemo Tutorial
+    // https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
+    //Code for scroll pane in text area :
+    //https://stackoverflow.com/questions/20341885/how-to-display-a-text-file-
+    // from-a-gui#:~:text=The%20easiest%20way%20to%20do,scrollPane%20%3D%20new%20JScrollPane(%20textArea%20)%3B
     public FileViewer(String dogName, File fileName) {
         JFrame frame = new JFrame();
         frame.setSize(WIDTH, HEIGHT);
@@ -24,10 +29,7 @@ public class FileViewer {
         textArea.setRows(60);
         textArea.setFont(new Font("Plain", Font.BOLD, 14));
 
-        // Wrap the lines of the JTextArea if it does not fit in the
-        // current allocated with of the JTextArea.
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+        wrapText(textArea);
 
         JScrollPane sp = new JScrollPane(textArea);
         frame.getContentPane().add(sp);
@@ -43,6 +45,16 @@ public class FileViewer {
 
     }
 
+
+    //EFFECTS:Wraps the lines of the JTextArea if it does not fit in the
+    //Source:https://kodejava.org/how-do-i-wrap-the-text-lines-in-jtextarea/
+    private void wrapText(JTextArea textArea) {
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+    }
+
+    //EFFECTS: loads the text file into the text area, throws an exception if file does not exist
+    //Source: https://stackoverflow.com/questions/5880169/loading-a-text-file-into-a-textarea
     public static void readFile(String fn, JTextComponent pane) {
         try {
             FileReader reader = new FileReader(fn);

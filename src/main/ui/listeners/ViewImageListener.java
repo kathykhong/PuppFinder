@@ -8,7 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //Class represents the response upon clicking the view image button in the dog breed results
-
+//Code source: List Demo Tutorial
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class ViewImageListener implements ActionListener {
     private DogBreedSet dogBreedResult;
     private JList<String> list;
@@ -35,8 +36,6 @@ public class ViewImageListener implements ActionListener {
                 ImageIcon fileName = dbs.get(i).getImageFile();
                 new PhotoViewer(dogName, fileName);
             }
-
-
         }
     }
 }

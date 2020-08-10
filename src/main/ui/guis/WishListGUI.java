@@ -14,6 +14,8 @@ import java.awt.*;
 //users are able to view the dog breeds they have added and have the
 //options to delete or view more information about the selected dog breed
 
+//Code source: List Demo Tutorial:
+// https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 public class WishListGUI extends JPanel implements ListSelectionListener {
     private JList list;
     private static final String MORE_INFO_STRING = "More Info";
