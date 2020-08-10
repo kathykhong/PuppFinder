@@ -9,24 +9,17 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 //***Test code source: TellerApp
 //https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
 
 public class ReaderTest {
-    private Reader testReader;
-
-    @BeforeEach
-    public void setUp() {
-        testReader = new Reader();
-    }
 
     @Test
     public void testParseDogBreedFromWishList() {
         try {
-            WishList testWishList = testReader.readWishList(new File("./data/testReadWishList.txt"));
+            WishList testWishList = Reader.readWishList(new File("./data/testReadWishList.txt"));
 
             DogBreed dogBreed1 = testWishList.get(0);
             checkDogBreed1Getter(dogBreed1);
@@ -38,9 +31,31 @@ public class ReaderTest {
     }
 
     @Test
+    public void testParseDogBreedFromEmptyWishListFileWithSpace() {
+        try {
+            WishList testWishList = Reader.readWishList(new File("./data/testReadEmptyWishListSP.txt"));
+            assertTrue(testWishList.isEmpty());
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+    @Test
+    public void testParseDogBreedFromEmptyWishListFile() {
+        try {
+            WishList testWishList = Reader.readWishList(new File("./data/testReadEmptyWishList.txt"));
+            assertTrue(testWishList.isEmpty());
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+
+
+    @Test
     public void testParseDogBreedFromDogBreedSet() {
         try {
-            DogBreedSet dbSet = testReader.readDogBreadSet(new File ("./data/testReadDogBreeds.txt"));
+            DogBreedSet dbSet = Reader.readDogBreadSet(new File ("./data/testReadDogBreeds.txt"));
             DogBreed dogBreed3 = dbSet.get(0);
             checkDogBreed3Getter(dogBreed3);
             DogBreed dogBreed4 = dbSet.get(1);
@@ -54,7 +69,7 @@ public class ReaderTest {
     @Test
     public void testIOExceptionWishListFile (){
         try {
-            testReader.readWishList(new File("./path/does/not/exist/testReadWishList.txt"));
+            Reader.readWishList(new File("./path/does/not/exist/testReadWishList.txt"));
             fail("Exception expected");
         } catch (IOException e) {
             // expected
@@ -64,7 +79,7 @@ public class ReaderTest {
     @Test
     public void testIOExceptionDogBreedFile (){
         try {
-            testReader.readDogBreadSet(new File("./path/does/not/exist/testDogBreeds.txt"));
+            Reader.readDogBreadSet(new File("./path/does/not/exist/testDogBreeds.txt"));
             fail("Exception expected");
         } catch (IOException e) {
             // expected

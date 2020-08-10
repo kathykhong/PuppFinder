@@ -5,7 +5,6 @@ import java.util.ArrayList;
 //*Class represents a set of dog breeds- most likely will be used to narrow down
 //user characteristic preferences
 
-
 public class DogBreedSet {
     private ArrayList<DogBreed> data;
 
