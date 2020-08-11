@@ -43,14 +43,13 @@ preferred characteristics, and narrow down our options.
 
 <h3>Instructions for Grader </h3>
 
-- You can generate the first required event by selecting a dog breed in the dog breed results and clicking the "Add to Wish List" button. 
-To view the dog breeds that were added to the wish list, click the "Wish List" button.
+In addition to adding the dog breeds in the results to a wish list using the "Add to Wish List" button:
 
-- You can generate the second required event by selecting a dog breed in the wish list and clicking the "More Info" button.
+- You can the first required event by selecting a dog breed in the *wish list* and clicking the "More Info" button.
 
-- You can generate the third required event by selecting a dog breed in the wish list and clicking the "Delete" button.
+- You can generate the second required event by selecting a dog breed in the *wish list* and clicking the "Delete" button.
 
-- You can locate my visual component by selecting a dog breed and clicking the "View Image" button in the dog breed results.
+- You can locate my visual component by selecting a dog breed and clicking the "View Image" button in the *dog breed results*.
 
 - You can save the state of my application by clicking the "Save" button in the wish list. 
 

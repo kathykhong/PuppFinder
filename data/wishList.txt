@@ -1,1 +1,1 @@
-Yorki Poo,1,small,1,0,1,1,0,1,./data/yorkiPoo.jpg,./data/yorkiPoo.txt
+
