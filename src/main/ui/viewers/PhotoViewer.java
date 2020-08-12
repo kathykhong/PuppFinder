@@ -5,33 +5,34 @@ import java.awt.*;
 
 //Class represents a photo viewer that displays an image of the selected dog breed
 //Source: PhotoViewer https://github.students.cs.ubc.ca/CPSC210/Lab1-Photoviewer.git
-public class PhotoViewer extends JFrame {
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 600;
+public class PhotoViewer extends Viewer {
+    private ImageIcon imageFile;
 
-    public PhotoViewer(String dogBreedName, ImageIcon fileName) {
-        this.setSize(WIDTH, HEIGHT);
-        this.setTitle(dogBreedName);
 
+    public PhotoViewer(String dogBreedName, ImageIcon imageFile) {
+        this.imageFile = imageFile;
+        setUpWindowSizeAndPlacement();
+        setUpViewingContent(dogBreedName);
+
+    }
+
+    @Override
+    protected void setUpViewingContent(String windowTitle) {
         JPanel panel = new JPanel();
         panel.setBackground(Color.WHITE);
-
-        Image image; // transform it
-        image = fileName.getImage();
-        Image newImg = image.getScaledInstance(600, 500,  java.awt.Image.SCALE_SMOOTH);
-        ImageIcon myImage = new ImageIcon(newImg);
-
+        this.setTitle(windowTitle);
+        ImageIcon myImage = formatImageSize(this.imageFile);
         JLabel label = new JLabel(myImage, JLabel.CENTER);
         panel.add(label, BorderLayout.CENTER);
         this.add(panel);
         panel.add(Box.createVerticalStrut(200));
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = screenSize.width / 2  - this.getWidth() / 2;
-        int y = screenSize.height / 2 - this.getHeight() / 2;
-        this.setLocation(x, y);
+    }
 
-        this.setVisible(true);
-        this.setAlwaysOnTop(true);
+    private ImageIcon formatImageSize(ImageIcon imageIcon) {
+        Image image;
+        image = imageIcon.getImage();
+        Image newImg = image.getScaledInstance(600, 500,  Image.SCALE_SMOOTH);
+        return new ImageIcon(newImg);
     }
 }
 

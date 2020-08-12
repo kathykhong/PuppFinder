@@ -1,1 +1,5 @@
-
+Border Collie,1,medium,1,1,1,1,1,1,./data/borderCollie.jpg,./data/borderCollie.txt
+Saint Bernard,1,large,1,1,1,1,1,1,./data/saintBernard.jpg,./data/saintBernard.txt
+Newfoundland,1,large,1,1,1,1,1,1,./data/newfoundland.jpg,./data/newfoundland.txt
+German Shepherd,1,large,1,1,0,1,1,1,./data/germanShepherd.jpg,./data/germanShepherd.txt
+Giant Schnauzer,1,large,1,1,1,1,0,1,./data/giantSchnauzer.jpg,./data/giantSchnauzer.txt

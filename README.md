@@ -41,11 +41,11 @@ preferred characteristics, and narrow down our options.
 <br>
 <br>
 
-<h3>Instructions for Grader </h3>
+<h3> Instructions for Grader </h3>
 
 In addition to adding the dog breeds in the results to a wish list using the "Add to Wish List" button:
 
-- You can the first required event by selecting a dog breed in the *wish list* and clicking the "More Info" button.
+- You can generate the first required event by selecting a dog breed in the *wish list* and clicking the "More Info" button.
 
 - You can generate the second required event by selecting a dog breed in the *wish list* and clicking the "Delete" button.
 
@@ -55,6 +55,26 @@ In addition to adding the dog breeds in the results to a wish list using the "Ad
 
 - The application automatically reloads, however, you can type "view" upon starting the application to see the previously saved 
 wish list.
+
+<br>
+<br>
+
+<h3> Phase 4: Task 2 </h3>
+
+I have chosen the option to *include a type hierarchy in your code other than the one that uses the Saveable interface
+introduced in Phase 2*. I noticed that the FileViewer, PhotoViewer, and SavedWishList class all display static content. 
+Therefore, I created an abstract class, Viewer, that is extended by all three of these classes.
+
+This abstract class contains the  setUpWindowSizeAndPlacement() method implementation which is inherited and used by
+all three subclasses. In addition, I declared an abstract method setUpViewingContent() in the Viewer class. This method is 
+overridden in all three subclasses and contains distinct functionality. In the PhotoViewer class, setUpViewingContent() is 
+responsible for setting up the panel and displaying the images of the selected dog breed. The 
+setUpViewingContent() method in the FileViewer class functions to layout the text area and present the highlights and 
+information of the selected dog breed. In the SavedWishListViewer class, setUpViewingContent() is used to display
+the saved Wish List. 
+
+
+
 
 
  

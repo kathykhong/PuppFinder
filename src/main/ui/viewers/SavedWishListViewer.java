@@ -1,21 +1,25 @@
-package ui.guis;
+package ui.viewers;
 
 import model.WishList;
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 //Class represents the GUI for the saved wish list that's
 //loaded when the program starts
 
-public class SavedWishList extends JFrame {
+public class SavedWishListViewer extends Viewer {
 
-    public SavedWishList(WishList wishList) {
+    public SavedWishListViewer(WishList wishList) {
         new JFrame("Wish List");
         setSize(400, 400);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = screenSize.width / 2 - this.getWidth() / 2;
         int y = screenSize.height / 2 - this.getHeight() / 2;
         setLocation(x, y);
+        setVisible(true);
+        toFront();
+        setAlwaysOnTop(true);
 
 
         JPanel wishListPanel = new JPanel(new GridLayout(0, 1));
@@ -32,8 +36,10 @@ public class SavedWishList extends JFrame {
             dogLabel.setHorizontalAlignment(JLabel.CENTER);
         }
 
-        setVisible(true);
-        toFront();
-        setAlwaysOnTop(true);
+    }
+
+    @Override
+    protected void setUpViewingContent(String windowTitle) {
+
     }
 }

@@ -4,7 +4,7 @@ package ui;
 import model.DogBreedSet;
 import model.WishList;
 import persistence.Reader;
-import ui.guis.SavedWishList;
+import ui.viewers.SavedWishListViewer;
 
 import java.io.File;
 import java.io.IOException;
@@ -83,11 +83,7 @@ public class PuppLauncher {
     //Source: while loop taken from B1: FitLifeGymChain Practice Problem
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToWelcome() {
-        System.out.println("Welcome to PuppFinder!");
-        System.out.println("We are here to help you find your perfect beloved pup in no time!");
-        System.out.println("Enter 'view' to see your WishList");
-        System.out.println("Enter 'quit' to leave PuppFinder");
-        System.out.println("Enter 'continue' to get started!");
+        printWelcomeMessage();
 
         String str;
         while (runProgram) {
@@ -121,7 +117,7 @@ public class PuppLauncher {
     private void handleUserResponseToSavedWishList() {
         if (!wishList.isEmpty()) {
             System.out.println("Here is your wish list:");
-            new SavedWishList(wishList);
+            new SavedWishListViewer(wishList);
             System.out.println("If you think your preferences have changed: ");
         } else {
             System.out.println("There are no dog breeds in the Wish List");
@@ -260,7 +256,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToShedALot() {
         System.out.println("Are you comfortable with your dog shedding a lot?");
-        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -293,7 +289,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToDogFriendly() {
         System.out.println("Do you prefer your dog to be friendly with other dogs ?");
-        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -326,7 +322,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToKidFriendly() {
         System.out.println("Do you prefer your dog to be friendly with children?");
-        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -359,7 +355,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToStrangerFriendly() {
         System.out.println("Do you prefer your dog to be friendly with strangers?");
-        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -392,7 +388,7 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToIntelligence() {
         System.out.println("Do you prefer your dog to be smart?");
-        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -482,6 +478,19 @@ public class PuppLauncher {
         s = s.replaceAll("\"|'", "");
         return s;
     }
+
+    private void printWelcomeMessage() {
+        System.out.println("Welcome to PuppFinder!");
+        System.out.println("We are here to help you find your perfect beloved pup in no time!");
+        System.out.println("Enter 'view' to see your WishList");
+        System.out.println("Enter 'quit' to leave PuppFinder");
+        System.out.println("Enter 'continue' to get started!");
+    }
+
+    private void printResponseInstructions() {
+        System.out.println("Please enter 'yes', 'no', or 'dm' (doesn't matter) for your response");
+    }
+
 
 }
 
