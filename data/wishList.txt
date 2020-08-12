@@ -1,2 +1,1 @@
-Border Collie,1,medium,1,1,1,1,1,1,./data/borderCollie.jpg,./data/borderCollie.txt
-
+Pekingnese,1,small,0,0,0,0,0,1,./data/pekingnese.jpg,./data/pekingnese.txt

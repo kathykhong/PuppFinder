@@ -18,7 +18,7 @@ public class FileViewer extends Viewer {
     // from-a-gui#:~:text=The%20easiest%20way%20to%20do,scrollPane%20%3D%20new%20JScrollPane(%20textArea%20)%3B
     public FileViewer(String dogName, File file) {
         this.file = file;
-        setUpWindowSizeAndPlacement();
+        setUpWindowSizeAndPlacement(700, 600);
         setUpViewingContent(dogName);
     }
 

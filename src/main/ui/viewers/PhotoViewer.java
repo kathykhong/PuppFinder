@@ -8,24 +8,26 @@ import java.awt.*;
 public class PhotoViewer extends Viewer {
     private ImageIcon imageFile;
 
-
     public PhotoViewer(String dogBreedName, ImageIcon imageFile) {
         this.imageFile = imageFile;
-        setUpWindowSizeAndPlacement();
+        setUpWindowSizeAndPlacement(700, 600);
         setUpViewingContent(dogBreedName);
 
     }
 
     @Override
     protected void setUpViewingContent(String windowTitle) {
+        this.setTitle(windowTitle);
         JPanel panel = new JPanel();
         panel.setBackground(Color.WHITE);
-        this.setTitle(windowTitle);
+        createAndCenterImageLabel(panel);
+    }
+
+    private void createAndCenterImageLabel(JPanel panel) {
         ImageIcon myImage = formatImageSize(this.imageFile);
         JLabel label = new JLabel(myImage, JLabel.CENTER);
         panel.add(label, BorderLayout.CENTER);
         this.add(panel);
-        panel.add(Box.createVerticalStrut(200));
     }
 
     private ImageIcon formatImageSize(ImageIcon imageIcon) {
