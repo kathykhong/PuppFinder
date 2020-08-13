@@ -4,32 +4,29 @@ import model.DogBreedSet;
 import model.WishList;
 import ui.guis.PuppResultGUI;
 import javax.swing.*;
-import java.awt.*;
 
 //Class represents the Gui initialization for the dog breed results
 //after the questionaire
 //Code source: List Demo Tutorial
 // https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
-public class GuiStarter {
+public class GuiStarter extends ContentFrame {
+    private DogBreedSet dogBreedResults;
+    private WishList wishList;
 
     public GuiStarter(DogBreedSet dogBreedResults, WishList wishList)  {
-        JFrame frame = new JFrame("Your DogBreed Results");
-        frame.setSize(400, 500);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = screenSize.width / 2 - frame.getWidth() / 2;
-        int y = screenSize.height / 2 - frame.getHeight() / 2;
-        frame.setLocation(x, y);
+        this. dogBreedResults = dogBreedResults;
+        this.wishList = wishList;
+        setUpWindowSizeAndPlacement(400, 500);
+        setUpViewingContent("Your Dog Breed Results");
+        displayWindowOnTop();
+    }
 
-        //Create and set up the content pane.
+
+    @Override
+    protected void setUpViewingContent(String windowTitle) {
+        this.setTitle("Your DogBreed Results");
         JComponent newContentPane = new PuppResultGUI(dogBreedResults, wishList);
-        newContentPane.setOpaque(true); //content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        //Display the window.
-        frame.setVisible(true);
-        frame.toFront();
-        frame.setAlwaysOnTop(true);
-
-
+        newContentPane.setOpaque(true);
+        this.setContentPane(newContentPane);
     }
 }

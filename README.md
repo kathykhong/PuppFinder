@@ -12,17 +12,16 @@ behavioural characteristics such as size, fur coat, playfulness, and friendlines
 
 Here, the PuppFinder application will construct a set of questions that covers a wide variety of dog characteristics 
 including the dog breed which will guide users to discovering their ideal pup. The application 
-will provide the results of the questionaire where users will be able to find more information
+will provide the results of the questionnaire where users will be able to find more information
 about the different dog breeds. Consequently, the user can narrow down their choices in a wish list.
 Furthermore, the user will be able to rate the quality of service from the PuppFinder application.
 -print out the final wish list where the user can review, and select the breed they wish to own
 
 This project really interests me because I am a dog lover myself and wish to own a dog 
-one day. Nonetheless, I do not know much about all the types of dogs besides the popular
-names such as a Poodle or a Chihuahua. There is just too many types and I often don't know where 
+one day. Nonetheless, I do not know much about all the types of dogs besides popular
+names such as a Poodle or a Chihuahua. There are just too many types and I often don't know where 
 to start looking. Choosing a dog to take care of can be quite challenging for new dog owners.
-Therefore, I hope that this application can help me and other people 
-who are interested dogs but do not know a lot about dog breeds learn more about the different types based on the
+Therefore, I hope that this application can help me and other people who are interested dogs but do not know a lot about dog breeds learn more about the different types based on the
 preferred characteristics, and narrow down our options.  
 
 
@@ -62,19 +61,43 @@ wish list.
 <h3> Phase 4: Task 2 </h3>
 
 I have chosen the option to *include a type hierarchy in your code other than the one that uses the Saveable interface
-introduced in Phase 2*. I noticed that the FileViewer, PhotoViewer, and SavedWishList class all display static content. 
-Therefore, I created an abstract class, Viewer, that is extended by all three of these classes.
+introduced in Phase 2*. I noticed that the FileViewer, PhotoViewer, SavedWishList, WishListListener, and GuiStarter class 
+have similar layout and formatting functionality but all display different content. Therefore, I created an abstract class, 
+ContentFrame, that is extended by all five of these classes.
 
-This abstract class contains the  setUpWindowSizeAndPlacement() method implementation which is inherited and used by
-all three subclasses. In addition, I declared an abstract method setUpViewingContent() in the Viewer class. This method is 
-overridden in all three subclasses and contains distinct functionality. In the PhotoViewer class, setUpViewingContent() is 
-responsible for setting up the panel and displaying the images of the selected dog breed. The 
-setUpViewingContent() method in the FileViewer class functions to layout the text area and present the highlights and 
-information of the selected dog breed. In the SavedWishListViewer class, setUpViewingContent() is used to display
-the saved Wish List. 
+This ContentFrame abstract class contains the  setUpWindowSizeAndPlacement(int width, int height) and displayWindowOnTop() method 
+implementations which is inherited and used by all 5 subclasses. In addition, I declared an abstract method setUpViewingContent() 
+in the ContentFrame class. This method is overridden in all five subclasses and contains distinct functionality. In the GuiStarter
+and WishListListener classes, this method works to setUp the list layout of dog breeds. In the PhotoViewer class, 
+setUpViewingContent() is responsible for setting up the panel and displaying the images of the selected dog breed. 
+Furthermore, the setUpViewingContent() method in the FileViewer class functions to layout the text area and present more information of the selected dog breed. In the SavedWishListViewer class, 
+setUpViewingContent() is used to display the saved Wish List. 
 
 
+<h3> Phase 4: Task  </h3>
+I have attempted to increase cohesion in my application during phase 3 of this project. Initially, I ran into the issue
+of having the PuppResultGUI class not only responsible for setting up the list display of the dog breeds as well as the 
+button options (View Image, AddToWishList, WishList), but also responsible for all the responses upon clicking these buttons.
+Similarly, the WishListGUI class also contained all the implementations for the Delete, MoreInfo, and Save button in addition to 
+the implementations relating to the Wish List display. 
 
+To resolve this issue, I created 6 separate classes (AddToWishListListener, DeleteListener, MoreInfoListener, SaveListener,
+ViewImageListener, and WishListListener) each of which implements ActionListener and functions to perform the 
+appropriate responses upon the click of the corresponding button. 
+
+While implementing the actionPerformed MoreInfoListener, I also came to a problem where my for-loop was becoming too big
+because I was trying to layout the text area and load the text file while wrapping all the text neatly. I figured that this
+method was not only exceeding the line limit but the class is not following the Single Responsibility Principle. Hence, 
+I created the class, FileViewer, that is solely responsible for setting up the text area, reading and formatting the text file for 
+the selected dog breed. 
+
+Other minor changes I did to improve my program include refactoring the filterSmall(), filterMedium(), filterLarge(), 
+containsSmallOnly(), containsMediumOnly(), and containsLargeOnly(), into just two methods filterSize(String size) and 
+containsSizeOnly(String size) in the DogBreed class. 
+
+I also created an abstract class DogCollection that is extended by DogBreedSet and WishList. The DogBreedSet and WishList 
+classes contain many of the same methods such as add(DogBreed db), and isEmpty(). Therefore, I moved all the overlapping
+method implementations to the DogCollection class to reduce duplicate code. 
 
 
  

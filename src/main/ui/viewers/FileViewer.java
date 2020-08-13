@@ -1,5 +1,7 @@
 package ui.viewers;
 
+import ui.ContentFrame;
+
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
@@ -8,7 +10,7 @@ import java.io.*;
 //Class represents a File Viewer that's used to read the text file containing the
 //highlights of the dog breed
 
-public class FileViewer extends Viewer {
+public class FileViewer extends ContentFrame {
     private File file;
 
     //Code for frame and text area construction source: ListDemo Tutorial
@@ -19,6 +21,7 @@ public class FileViewer extends Viewer {
     public FileViewer(String dogName, File file) {
         this.file = file;
         setUpWindowSizeAndPlacement(700, 600);
+        displayWindowOnTop();
         setUpViewingContent(dogName);
     }
 

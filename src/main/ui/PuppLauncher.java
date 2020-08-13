@@ -84,14 +84,12 @@ public class PuppLauncher {
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToWelcome() {
         printWelcomeMessage();
-
         String str;
         while (runProgram) {
             str = getUserInputString();
             parseInputStart(str);
         }
     }
-
 
     //EFFECTS: begins questionaire depending on user input
     //Source: switch code taken from A3 TakeOut Order Solution
@@ -151,8 +149,8 @@ public class PuppLauncher {
     //Source: while loop taken from B1: FitLifeGymChain Practice Problem
     //https://github.com/UBCx-Software-Construction/long-form-problem-starters.git
     private void handleUserResponseToFluff() {
-        System.out.println("Please enter 'yes' or 'no' to the following question");
         System.out.println("Would you like your dog to be fluffy?");
+        printResponseInstructions();
         String str;
         while (runProgram) {
             str = getUserInputString();
@@ -204,13 +202,13 @@ public class PuppLauncher {
         if (str.length() > 0) {
             switch (str) {
                 case SMALL_COMMAND:
-                    dbs.filterSmall();
+                    dbs.filterSize(SMALL_COMMAND);
                     break;
                 case MEDIUM_COMMAND:
-                    dbs.filterMedium();
+                    dbs.filterSize(MEDIUM_COMMAND);
                     break;
                 case LARGE_COMMAND:
-                    dbs.filterLarge();
+                    dbs.filterSize(LARGE_COMMAND);
                     break;
                 case DOESNT_MATTER_COMMAND:
                     break;

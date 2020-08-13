@@ -98,14 +98,17 @@ public class PuppResultGUI extends JPanel implements ListSelectionListener {
         if (!e.getValueIsAdjusting()) {
             if (list.getSelectedIndex() == -1) {
                 //no selection, disable add button, disable view Image button
-                addButton.setEnabled(false);
-                viewImageButton.setEnabled(false);
+                setStatusOfButtons(false);
             } else {
                 //Selection, enable the add button, view button
-                addButton.setEnabled(true);
-                viewImageButton.setEnabled(true);
+                setStatusOfButtons(true);
             }
         }
+    }
+
+    private void setStatusOfButtons(boolean b) {
+        addButton.setEnabled(b);
+        viewImageButton.setEnabled(b);
     }
 }
 

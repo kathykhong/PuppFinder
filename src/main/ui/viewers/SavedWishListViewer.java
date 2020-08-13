@@ -1,6 +1,8 @@
 package ui.viewers;
 
 import model.WishList;
+import ui.ContentFrame;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +10,7 @@ import java.awt.*;
 //Class represents the GUI for the saved wish list that's
 //loaded when the program starts
 
-public class SavedWishListViewer extends Viewer {
+public class SavedWishListViewer extends ContentFrame {
     private WishList wishList;
     private JPanel wishListPanel;
 
@@ -16,6 +18,7 @@ public class SavedWishListViewer extends Viewer {
     public SavedWishListViewer(WishList wishList) {
         this.wishList = wishList;
         setUpWindowSizeAndPlacement(400, 400);
+        displayWindowOnTop();
         setUpViewingContent("Wish List");
     }
 

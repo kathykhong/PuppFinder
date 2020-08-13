@@ -25,11 +25,11 @@ public class ViewImageListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         int index = list.getSelectedIndex();
         String selected = listModel.get(index);
-        handleUserSelectToViewImage(selected, dogBreedResult);
+        initiatePhotoViewerForSelected(selected, dogBreedResult);
     }
 
     //EFFECTS: initiates the PhotoViewer to view an image of selected dog breed
-    private void handleUserSelectToViewImage(String selected, DogBreedSet dbs) {
+    private void initiatePhotoViewerForSelected(String selected, DogBreedSet dbs) {
         for (int i = 0; i < dbs.size(); i++) {
             if (selected.equals(dbs.get(i).getName())) {
                 String dogName = dbs.get(i).getName();

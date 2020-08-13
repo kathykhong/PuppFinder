@@ -1,16 +1,19 @@
 package ui.viewers;
 
+import ui.ContentFrame;
+
 import javax.swing.*;
 import java.awt.*;
 
 //Class represents a photo viewer that displays an image of the selected dog breed
 //Source: PhotoViewer https://github.students.cs.ubc.ca/CPSC210/Lab1-Photoviewer.git
-public class PhotoViewer extends Viewer {
+public class PhotoViewer extends ContentFrame {
     private ImageIcon imageFile;
 
     public PhotoViewer(String dogBreedName, ImageIcon imageFile) {
         this.imageFile = imageFile;
         setUpWindowSizeAndPlacement(700, 600);
+        displayWindowOnTop();
         setUpViewingContent(dogBreedName);
 
     }

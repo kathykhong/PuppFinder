@@ -2,42 +2,24 @@ package model;
 
 import java.util.ArrayList;
 
+
 //*Class represents a set of dog breeds- most likely will be used to narrow down
 //user characteristic preferences
 
-public class DogBreedSet {
-    private ArrayList<DogBreed> data;
+public class DogBreedSet extends DogCollection {
 
     public DogBreedSet() {
-        this.data = new ArrayList<>();
+        super();
     }
 
     //MODIFIES: this
-    //EFFECTS: adds db to this
-    public void add(DogBreed db) {
-        data.add(db);
+    //EFFECTS: removed all dogs that does not have the given size
+    //Source: filtering method taken from
+    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
+    public void filterSize(String size) {
+        data.removeIf(db -> !db.getSize().equals(size));
     }
 
-    //EFFECTS: returns true if the dog breed set is empty, other wise returns false
-    public boolean isEmpty() {
-        return data.isEmpty();
-    }
-
-    //EFFECTS: returns true if the given db is in the dog breed set
-    public Boolean contains(DogBreed db) {
-        return data.contains(db);
-    }
-
-    //EFFECTS: returns the size of the dog breed set
-    public Integer size() {
-        return data.size();
-    }
-
-    //REQUIRES: the dog breed set cannot be empty
-    //EFFECTS: returns the dog breed at the given index
-    public DogBreed get(int index) {
-        return data.get(index);
-    }
 
     //MODIFIES: this
     //EFFECTS: removes all the non-fully dog breeds
@@ -55,29 +37,6 @@ public class DogBreedSet {
         data.removeIf(db -> db.getFluff() == 1);
     }
 
-    //MODIFIES: this
-    //EFFECTS: removes all the large or medium dog breeds
-    //Source: filtering method taken from
-    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
-    public void filterSmall() {
-        data.removeIf(db -> !db.getSize().equals("small"));
-    }
-
-    //MODIFIES: this
-    //EFFECTS: removes all the small or large  dog breeds
-    //Source: filtering method taken from
-    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
-    public void filterMedium() {
-        data.removeIf(db -> !db.getSize().equals("medium"));
-    }
-
-    //MODIFIES: this
-    //EFFECTS: removes all the small or medium dog breeds
-    //Source: filtering method taken from
-    //https://stackoverflow.com/questions/34992904/java-8-for-each-and-removeif
-    public void filterLarge() {
-        data.removeIf(db -> !db.getSize().equals("large"));
-    }
 
     //MODIFIES: this
     //EFFECTS: removes all the calm dog breeds
@@ -206,50 +165,22 @@ public class DogBreedSet {
         }
     }
 
-    //EFFECTS: returns true if the dog breed set contains only small dogs
-    public boolean containsSmallOnly() {
-        int smallCount = 0;
+
+    //EFFECTS: returns true if the dog breed set contains only dogs with the given size
+    public boolean containsSizeOnly(String size) {
+        int sizeCount = 0;
         if (data.size() == 0) {
             return false;
         } else {
             for (DogBreed datum : data) {
-                if (datum.getSize().equals("small")) {
-                    smallCount = smallCount + 1;
+                if (datum.getSize().equals(size)) {
+                    sizeCount = sizeCount + 1;
                 }
             }
-            return smallCount == data.size();
+            return sizeCount == data.size();
         }
     }
 
-    //EFFECTS: returns true if the dog breed set contains only medium dogs
-    public boolean containsMediumOnly() {
-        int mediumCount = 0;
-        if (data.size() == 0) {
-            return false;
-        } else {
-            for (DogBreed datum : data) {
-                if (datum.getSize().equals("medium")) {
-                    mediumCount = mediumCount + 1;
-                }
-            }
-            return mediumCount == data.size();
-        }
-    }
-
-    //EFFECTS: returns true if the dog breed set contains only large dogs
-    public boolean containsLargeOnly() {
-        int largeCount = 0;
-        if (data.size() == 0) {
-            return false;
-        } else {
-            for (DogBreed datum : data) {
-                if (datum.getSize().equals("large")) {
-                    largeCount = largeCount + 1;
-                }
-            }
-            return largeCount == data.size();
-        }
-    }
 
     //EFFECTS: returns true if the dog breed set contains only energetic dogs
     public boolean containsEnergeticOnly() {

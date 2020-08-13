@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 //test class for DogBreedSet
 
 public class DogBreedSetTest {
+    private static final String SMALL_STRING = "small";
+    private static final String MEDIUM_STRING = "medium";
+    private static final String LARGE_STRING = "large";
     private DogBreedSet testSetAll;
     private DogBreed testDogBreed1;
     private DogBreed testDogBreed2;
@@ -22,6 +25,7 @@ public class DogBreedSetTest {
     private DogBreed testDogBreed8;
     private DogBreed testDogBreed9;
     private DogBreedSet testSetEmpty;
+
 
     @BeforeEach
     public void setUp() {
@@ -115,100 +119,100 @@ public class DogBreedSetTest {
     @Test
     public void testFilterMultipleSmall() {
         assertEquals(testSetAll.size(), 9);
-        testSetAll.filterSmall();
+        testSetAll.filterSize(SMALL_STRING);
         assertEquals(testSetAll.size(), 3 );
-        assertTrue(testSetAll.containsSmallOnly());
-        assertFalse(testSetAll.containsMediumOnly());
-        assertFalse(testSetAll.containsLargeOnly());
+        assertTrue(testSetAll.containsSizeOnly(SMALL_STRING));
+        assertFalse(testSetAll.containsSizeOnly(MEDIUM_STRING));
+        assertFalse(testSetAll.containsSizeOnly(LARGE_STRING));
     }
 
     @Test
     public void testFilterOneSmall() {
         testSetEmpty.add(testDogBreed1);
         testSetEmpty.add(testDogBreed2);
-        testSetEmpty.filterSmall();
+        testSetEmpty.filterSize(SMALL_STRING);
         assertEquals(testSetEmpty.size(), 1);
-        assertTrue(testSetEmpty.containsSmallOnly());
-        assertFalse(testSetEmpty.containsMediumOnly());
-        assertFalse(testSetEmpty.containsLargeOnly());
+        assertTrue(testSetEmpty.containsSizeOnly(SMALL_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(LARGE_STRING));
     }
 
     @Test
     public void testFilterNoSmall() {
-        assertFalse(testSetEmpty.containsSmallOnly());
-        testSetEmpty.filterSmall();
+        assertFalse(testSetEmpty.containsSizeOnly(SMALL_STRING));
+        testSetEmpty.filterSize(SMALL_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsSmallOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(SMALL_STRING));
         testSetEmpty.add(testDogBreed2);
-        testSetEmpty.filterSmall();
+        testSetEmpty.filterSize(SMALL_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsSmallOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(SMALL_STRING));
     }
 
     @Test
     public void testFilterMultipleMedium() {
         assertEquals(testSetAll.size(), 9);
-        testSetAll.filterMedium();
+        testSetAll.filterSize(MEDIUM_STRING);
         assertEquals(testSetAll.size(), 3 );
-        assertTrue(testSetAll.containsMediumOnly());
-        assertFalse(testSetAll.containsLargeOnly());
-        assertFalse(testSetAll.containsSmallOnly());
+        assertTrue(testSetAll.containsSizeOnly(MEDIUM_STRING));
+        assertFalse(testSetAll.containsSizeOnly(LARGE_STRING));
+        assertFalse(testSetAll.containsSizeOnly(SMALL_STRING));
     }
 
     @Test
     public void testFilterOneMedium() {
         testSetEmpty.add(testDogBreed1);
         testSetEmpty.add(testDogBreed2);
-        testSetEmpty.filterMedium();
+        testSetEmpty.filterSize(MEDIUM_STRING);
         assertEquals(testSetEmpty.size(), 1);
-        assertTrue(testSetEmpty.containsMediumOnly());
-        assertFalse(testSetEmpty.containsLargeOnly());
-        assertFalse(testSetEmpty.containsSmallOnly());
+        assertTrue(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(LARGE_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(SMALL_STRING));
     }
 
     @Test
     public void testFilterNoMedium() {
-        assertFalse(testSetEmpty.containsSmallOnly());
-        testSetEmpty.filterMedium();
+        assertFalse(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
+        testSetEmpty.filterSize(MEDIUM_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsMediumOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
         testSetEmpty.add(testDogBreed1);
-        testSetEmpty.filterMedium();
+        testSetEmpty.filterSize(MEDIUM_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsMediumOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
     }
 
     @Test
     public void testFilterMultipleLarge() {
         assertEquals(testSetAll.size(), 9);
-        testSetAll.filterLarge();
+        testSetAll.filterSize(LARGE_STRING);
         assertEquals(testSetAll.size(), 3 );
-        assertTrue(testSetAll.containsLargeOnly());
-        assertFalse(testSetAll.containsSmallOnly());
-        assertFalse(testSetAll.containsMediumOnly());
+        assertTrue(testSetAll.containsSizeOnly(LARGE_STRING));
+        assertFalse(testSetAll.containsSizeOnly(SMALL_STRING));
+        assertFalse(testSetAll.containsSizeOnly(MEDIUM_STRING));
     }
 
     @Test
     public void testFilterOneLarge() {
         testSetEmpty.add(testDogBreed1);
         testSetEmpty.add(testDogBreed5);
-        testSetEmpty.filterLarge();
+        testSetEmpty.filterSize(LARGE_STRING);
         assertEquals(testSetEmpty.size(), 1);
-        assertTrue(testSetEmpty.containsLargeOnly());
-        assertFalse(testSetEmpty.containsMediumOnly());
-        assertFalse(testSetEmpty.containsSmallOnly());
+        assertTrue(testSetEmpty.containsSizeOnly(LARGE_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(MEDIUM_STRING));
+        assertFalse(testSetEmpty.containsSizeOnly(SMALL_STRING));
     }
 
     @Test
     public void testFilterNoLarge() {
-        assertFalse(testSetEmpty.containsLargeOnly());
-        testSetEmpty.filterLarge();
+        assertFalse(testSetEmpty.containsSizeOnly(LARGE_STRING));
+        testSetEmpty.filterSize(LARGE_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsLargeOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(LARGE_STRING));
         testSetEmpty.add(testDogBreed1);
-        testSetEmpty.filterLarge();
+        testSetEmpty.filterSize(LARGE_STRING);
         assertEquals(testSetEmpty.size(), 0);
-        assertFalse(testSetEmpty.containsLargeOnly());
+        assertFalse(testSetEmpty.containsSizeOnly(LARGE_STRING));
     }
 
     @Test
