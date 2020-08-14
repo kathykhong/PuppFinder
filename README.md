@@ -79,17 +79,17 @@ setUpViewingContent() is used to display the saved Wish List.
 I have attempted to increase cohesion in my application during phase 3 of this project. Initially, I ran into the issue
 of having the PuppResultGUI class not only responsible for setting up the list display of the dog breeds as well as the 
 button options (View Image, AddToWishList, WishList), but also responsible for all the responses upon clicking these buttons.
-Similarly, the WishListGUI class also contained all the implementations for the Delete, MoreInfo, and Save button in addition to 
-the implementations relating to the Wish List display. 
+Similarly, the WishListGUI class also contained all the implementations for the responses to the Delete, MoreInfo, and 
+Save button, in addition to the implementations relating to the Wish List display. 
 
 
-To resolve this issue, I created 6 separate classes (AddToWishListListener, DeleteListener, MoreInfoListener, SaveListener,
+To resolve the poor cohesion, I created 6 separate classes (AddToWishListListener, DeleteListener, MoreInfoListener, SaveListener,
 ViewImageListener, and WishListListener) each of which implements ActionListener and functions to perform the 
 appropriate responses upon the click of the corresponding button. 
 
-While implementing the actionPerformed MoreInfoListener, I also came to a problem where my for-loop was becoming too big
-because I was trying to layout the text area and load the text file while wrapping all the text neatly. I figured that this
-method was not only exceeding the line limit but the class is not following the Single Responsibility Principle. Hence, 
+While implementing the actionPerformed(Event e) method in the MoreInfoListener class, I also came to a problem where 
+my for-loop was becoming too big because I was trying to layout the text area and load the text file while wrapping all the text neatly. 
+I figured that this method was not only exceeding the line limit but the class is not following the Single Responsibility Principle. Hence, 
 I created the class, FileViewer, that is solely responsible for setting up the text area, reading and formatting the text file for 
 the selected dog breed. 
 
