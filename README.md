@@ -74,7 +74,7 @@ Furthermore, the setUpViewingContent() method in the FileViewer class functions 
 setUpViewingContent() is used to display the saved Wish List. 
 
 
-<h3> Phase 4: Task  </h3>
+<h3> Phase 4: Task 3 </h3>
 
 I have attempted to increase cohesion in my application during phase 3 of this project. Initially, I ran into the issue
 of having the PuppResultGUI class not only responsible for setting up the list display of the dog breeds as well as the 
