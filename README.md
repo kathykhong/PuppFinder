@@ -99,7 +99,7 @@ containsSizeOnly(String size) in the DogBreed class.
 
 I also created an abstract class DogCollection that is extended by DogBreedSet and WishList. The DogBreedSet and WishList 
 classes contain many of the same methods such as add(DogBreed db), and isEmpty(). Therefore, I moved all the overlapping
-method implementations to the DogCollection class to reduce duplicate code. 
+method implementations into the DogCollection class to reduce duplicate code. 
 
 
  
