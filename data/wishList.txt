@@ -1,1 +1,1 @@
-Papillon,1,small,1,1,1,1,1,1,./data/papillon.jpg,./data/papillon.txt
+Drever,0,medium,1,1,1,1,1,1,./data/drever.jpg,./data/drever.txt

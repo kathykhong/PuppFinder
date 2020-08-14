@@ -12,7 +12,6 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 
-
 //Class represents the GUI for the dog breed results following the questionaire
 //users are able to view the results and have the option to view the image of the
 //selected dog, add them to a wish list, and view the wish list

@@ -1,6 +1,5 @@
 package persistence;
 
-import model.DogBreed;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +19,7 @@ public class Writer {
 
     // MODIFIES: this
     // EFFECTS: writes saveable to file
-    public void write(DogBreed saveable) {
+    public void write(Saveable saveable) {
         saveable.save(printWriter);
     }
 

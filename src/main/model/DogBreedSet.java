@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 
 //*Class represents a set of dog breeds- most likely will be used to narrow down
 //user characteristic preferences
@@ -118,7 +116,6 @@ public class DogBreedSet extends DogCollection {
         data.removeIf(db -> db.getStrangerFriendly() == 1);
     }
 
-
     //MODIFIES: this
     //EFFECTS: removes all the dog breeds that are not intelligent
     //Source: filtering method taken from
@@ -164,7 +161,6 @@ public class DogBreedSet extends DogCollection {
             return nonFluffyCount == data.size();
         }
     }
-
 
     //EFFECTS: returns true if the dog breed set contains only dogs with the given size
     public boolean containsSizeOnly(String size) {

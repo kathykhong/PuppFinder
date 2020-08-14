@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.io.*;
-//
+
 //Class represents a File Viewer that's used to read the text file containing the
 //highlights of the dog breed
 

@@ -2,10 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
+//Class represents a generic dog collection
+//contains all the common methods between DogBreedSet and WishList
+
 public abstract class DogCollection {
     protected ArrayList<DogBreed> data;
 
-    public DogCollection() {
+    protected DogCollection() {
         this.data = new ArrayList<>();
     }
 
@@ -31,8 +34,6 @@ public abstract class DogCollection {
     public Integer size() {
         return data.size();
     }
-
-
 
     //EFFECTS: returns the dog breed at the given index
     public DogBreed get(int index) {

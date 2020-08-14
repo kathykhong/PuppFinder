@@ -75,11 +75,13 @@ setUpViewingContent() is used to display the saved Wish List.
 
 
 <h3> Phase 4: Task  </h3>
+
 I have attempted to increase cohesion in my application during phase 3 of this project. Initially, I ran into the issue
 of having the PuppResultGUI class not only responsible for setting up the list display of the dog breeds as well as the 
 button options (View Image, AddToWishList, WishList), but also responsible for all the responses upon clicking these buttons.
 Similarly, the WishListGUI class also contained all the implementations for the Delete, MoreInfo, and Save button in addition to 
 the implementations relating to the Wish List display. 
+
 
 To resolve this issue, I created 6 separate classes (AddToWishListListener, DeleteListener, MoreInfoListener, SaveListener,
 ViewImageListener, and WishListListener) each of which implements ActionListener and functions to perform the 

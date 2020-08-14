@@ -5,7 +5,6 @@ import ui.ContentFrame;
 import ui.guis.WishListGUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
